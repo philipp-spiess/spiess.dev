@@ -1,8 +1,10 @@
-import "../styles/globals.css";
 import "../styles/editor.css";
-import type { AppProps } from "next/app";
-import Head from "next/head";
+import "../styles/globals.css";
+
+import { Analytics } from "@vercel/analytics/react";
 import { normal, bold, italic } from "../lib/fonts";
+import Head from "next/head";
+import type { AppProps } from "next/app";
 
 import styles from "./_app.module.css";
 
@@ -23,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
+      <Analytics />
     </>
   );
 }
