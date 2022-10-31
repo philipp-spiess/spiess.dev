@@ -1,0 +1,53 @@
+.bio {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  min-width: calc(100px + 1.75rem);
+  display: flex;
+  padding-top: 8px;
+}
+
+.avatarLink {
+  box-shadow: none;
+}
+
+.image {
+  margin-bottom: 0;
+  min-width: 100px;
+  border-radius: 100%;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-family: var(--marriweather-bold);
+  font-weight: 900;
+}
+
+.ipa {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.intro {
+  margin: 1.25rem 0;
+}
+
+.list {
+  margin: 0;
+  display: flex;
+  list-style-type: none;
+  max-width: 300px;
+}
+.list > li {
+  margin: calc(1.75rem / 6);
+  margin-top: 0;
+  flex-grow: 1;
+}
+.list > li:first-child {
+  margin-left: 0;
+}
+.list > li:last-child {
+  margin-right: 0;
+}
