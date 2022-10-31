@@ -32,6 +32,12 @@ export default function Slug(props: Props) {
   const { post } = props;
   return (
     <>
+      <Head>
+        <title>{post.title} | Philipp Spiess</title>
+        <meta property="og:title" content="Philipp Spiess" />
+        <meta property="og:description" content={post.excerpt} />
+      </Head>
+
       <header className={styles.header}>
         <div className={`${styles.container} ${styles.headerContainer}`}>
           <div>
