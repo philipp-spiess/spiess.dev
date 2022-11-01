@@ -6,6 +6,7 @@ import { getNotes, Note } from "../../lib/parser/notes";
 import ArticleHeader from "../../lib/ArticleHeader";
 import Notes from "../../lib/Notes";
 import React from "react";
+import Bio from "../../lib/Bio";
 
 export async function getStaticPaths() {
   const paths = (await getNotes()).map((note) => "/note/" + note.id);
@@ -37,7 +38,8 @@ export default function Slug({ note, notes }: Props) {
     <>
       <Head>
         <title>
-          {note.title} | {note.category.reverse().join(" | ")} | Philipp Spiess
+          {note.title} | {[...note.category].reverse().join(" | ")} | Philipp
+          Spiess
         </title>
         <meta property="og:title" content="Philipp Spiess" />
       </Head>
@@ -65,6 +67,11 @@ export default function Slug({ note, notes }: Props) {
           <h2>Other Notes</h2>
           <Notes notes={notes} />
         </section>
+      </div>
+
+      <div className={styles.container}>
+        <h4 style={{ marginTop: "3.5rem" }}>About the author</h4>
+        <Bio direction="row" />
       </div>
     </>
   );
