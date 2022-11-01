@@ -43,8 +43,8 @@ export default function Home({ posts, notes }: Props) {
               A collection of my random thoughts. Don’t expect a high bar for
               quality but perhaps you find something interesting. Inspired by
               Josh Branchaud’s{" "}
-              <a href="https://github.com/jbranchaud/til">til</a> and Shawn
-              Wang’s{" "}
+              <a href="https://github.com/jbranchaud/til">til</a>, Lee Byron’s{" "}
+              <a href="https://leebyron.com/til/">til</a>, and Shawn Wang’s{" "}
               <a href="https://www.swyx.io/learn-in-public/">Learn In Public</a>
               .
             </p>
