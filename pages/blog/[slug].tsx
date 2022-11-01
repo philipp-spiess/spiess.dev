@@ -1,18 +1,18 @@
-import { getPost, Post } from "../lib/parser/post";
-import { getPosts } from "../lib/parser/posts";
-import Bio, { description } from "../lib/Bio";
+import { BlogPost, getPost, Post } from "../../lib/parser/post";
+import { getPosts } from "../../lib/parser/posts";
+import ArticleHeader from "../../lib/ArticleHeader";
+import Avatar from "../../lib/Avatar";
+import Bio from "../../lib/Bio";
 import Head from "next/head";
-import PostPreview from "../lib/PostPreview";
-import styles from "./[slug].module.css";
-import Avatar from "../lib/Avatar";
 import Link from "next/link";
+import styles from "./[slug].module.css";
 
-import { bold } from "../lib/fonts";
+import { bold } from "../../lib/fonts";
 
 export async function getStaticPaths() {
   const paths = (await getPosts())
-    .filter((post) => !post.external)
-    .map((post) => "/" + post.id);
+    .filter((post) => post.type === "blog")
+    .map((post) => "/blog/" + post.id);
   return {
     paths,
     fallback: false,
@@ -26,7 +26,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 }
 
 interface Props {
-  post: Post;
+  post: BlogPost;
 }
 export default function Slug(props: Props) {
   const { post } = props;
@@ -38,18 +38,7 @@ export default function Slug(props: Props) {
         <meta property="og:description" content={post.excerpt} />
       </Head>
 
-      <header className={styles.header}>
-        <div className={`${styles.container} ${styles.headerContainer}`}>
-          <div>
-            <Avatar width={30} />
-            <h3 className={styles.author}>Philipp Spiess</h3>
-          </div>
-          <div className={styles.spacer} />
-          <div>
-            <Link href="/">All Articles</Link>
-          </div>
-        </div>
-      </header>
+      <ArticleHeader type="blog" containerClass={styles.container} />
 
       <div className={`${styles.container} ${styles.post} post`}>
         <h1 className={bold.className} style={{ marginBottom: 0 }}>

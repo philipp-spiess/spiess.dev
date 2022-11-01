@@ -55,6 +55,15 @@ li {
   margin-bottom: calc(1.75rem / 2);
 }
 
+li li {
+  margin-bottom: calc(1.75rem / 4);
+}
+
+li ul,
+li ol {
+  margin-top: calc(1.75rem / 4);
+}
+
 li > p {
   margin-bottom: calc(1.75rem / 2);
 }
@@ -133,7 +142,8 @@ p {
   border: 0;
 }
 
-.footnotes::before {
+.footnotes::before,
+hr {
   margin: 0;
   padding: 0;
   margin-bottom: calc(1.75rem - 1px);
@@ -155,4 +165,29 @@ pre {
 code {
   font-size: 0.85rem;
   line-height: 1.75rem;
+}
+
+.post video,
+.post iframe,
+.post img {
+  margin-left: calc(100% / 2 - 100vw / 2) !important;
+  margin-right: calc(100% / 2 - 100vw / 2) !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 700px) {
+  .post video,
+  .post iframe,
+  .post img {
+    border-radius: 10px;
+    margin-left: -50px !important;
+    margin-right: -50px !important;
+    max-width: calc(700px - 1.75rem / 2) !important;
+  }
+}
+
+.post .footnotes > ol > li > p {
+  display: inline;
 }
