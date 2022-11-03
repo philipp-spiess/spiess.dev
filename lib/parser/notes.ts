@@ -73,8 +73,10 @@ export async function getNotes(): Promise<Note[]> {
   const rawNotes = (await fetchNotes()) as any;
 
   for (const rawNote of rawNotes) {
-    const date = await getCreationDate(rawNote.path);
-    const { contentHtml } = await parseMarkdown(rawNote.content);
+    const { data, contentHtml } = await parseMarkdown(rawNote.content);
+
+    const date =
+      data.date != null ? data.date : await getCreationDate(rawNote.path);
 
     notes.push({
       title: rawNote.path.split("/").pop().replace(".md", ""),
