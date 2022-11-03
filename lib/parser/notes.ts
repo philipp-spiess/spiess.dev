@@ -76,7 +76,9 @@ export async function getNotes(): Promise<Note[]> {
     const { data, contentHtml } = await parseMarkdown(rawNote.content);
 
     const date =
-      data.date != null ? data.date : await getCreationDate(rawNote.path);
+      data.date instanceof Date
+        ? data.date.toISOString()
+        : await legacy_getCreationDateFromGit(rawNote.path);
 
     notes.push({
       title: rawNote.path.split("/").pop().replace(".md", ""),
@@ -153,7 +155,7 @@ function recursivelyResolveEntries(tree: GitHubTree): RawNote[] {
   return result;
 }
 
-async function getCreationDate(path: string): Promise<string> {
+async function legacy_getCreationDateFromGit(path: string): Promise<string> {
   const commits = await fetch(COMMITS_URL + path, {
     headers,
   }).then((r) => r.json());
