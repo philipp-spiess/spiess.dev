@@ -12,8 +12,10 @@ export default function ArticleHeader(props: Props) {
     <header className={styles.header}>
       <div className={`${props.containerClass} ${styles.headerContainer}`}>
         <div>
-          <Avatar width={30} />
-          <h3 className={styles.author}>Philipp Spiess</h3>
+          <Link href="/" className={styles.authorLink}>
+            <Avatar width={30} />
+            <h3 className={styles.author}>Philipp Spiess</h3>
+          </Link>
         </div>
         <div className={styles.spacer} />
         <div>

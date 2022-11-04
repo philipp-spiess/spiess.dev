@@ -40,3 +40,9 @@
 .spacer {
   flex: 1 1 0%;
 }
+
+.authorLink {
+  display: block;
+  box-shadow: none;
+  height: 56px;
+}

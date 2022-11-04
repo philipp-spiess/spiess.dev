@@ -12,6 +12,8 @@
 
 .avatarLink {
   box-shadow: none;
+  border-radius: 50%;
+  height: 100px;
 }
 
 .image {
