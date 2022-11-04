@@ -41,7 +41,15 @@ export default function Slug({ note, notes }: Props) {
           {note.title} | {[...note.category].reverse().join(" | ")} | Philipp
           Spiess
         </title>
-        <meta property="og:title" content="Philipp Spiess" />
+        <meta property="og:title" content={note.title} />
+        <meta
+          property="og:image"
+          content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
+            note.title
+          )}&date=${encodeURIComponent(
+            note.formattedDate
+          )}&sub=${encodeURIComponent(note.category.join("/"))}`}
+        />
       </Head>
 
       <ArticleHeader type="note" containerClass={styles.container} />

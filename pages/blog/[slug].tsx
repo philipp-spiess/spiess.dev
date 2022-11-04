@@ -34,8 +34,16 @@ export default function Slug(props: Props) {
     <>
       <Head>
         <title>{post.title} | Philipp Spiess</title>
-        <meta property="og:title" content="Philipp Spiess" />
+        <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
+        <meta
+          property="og:image"
+          content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
+            post.title
+          )}&date=${encodeURIComponent(
+            post.formattedDate
+          )}&sub=${encodeURIComponent(post.readingTime)}`}
+        />
       </Head>
 
       <ArticleHeader type="blog" containerClass={styles.container} />
