@@ -86,7 +86,13 @@ export default function Bio({ direction }: Props) {
             </Link>
           </li>
           <li>
-            <a href="mailto:hello@philippspiess.com">Mail</a>
+            <Link
+              href="https://hachyderm.io/@philippspiess"
+              target="_blank"
+              rel="me"
+            >
+              Mastodon
+            </Link>
           </li>
           <li>
             <Link
