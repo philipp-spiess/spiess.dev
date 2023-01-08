@@ -1,6 +1,7 @@
 :root {
   --bg-color: #fffcf5;
   --fg-color: 0, 0, 0;
+  --muted-color: rgba(var(--fg-color), 0.5);
   --accent-color: #8e6e15;
 }
 
@@ -9,6 +10,7 @@
     --bg-color: #161514;
     --fg-color: 255, 255, 255;
     --accent-color: #ecc63c;
+    --muted-color: rgba(var(--fg-color), 0.6);
   }
 }
 

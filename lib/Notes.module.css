@@ -7,7 +7,7 @@
 
 .date {
   font-size: 0.8rem;
-  color: rgba(var(--fg-color), 0.5);
+  color: var(--muted-color);
   display: flex;
   align-items: center;
 }
