@@ -5,7 +5,7 @@ export default function FourOhFour() {
     <div className={styles.container}>
       <div>
         <h1>Not Found</h1>
-        <p>You just hit a route that does not exist. 😭</p>
+        <p>You just hit a route that does not exist. 🥺</p>
       </div>
     </div>
   );
