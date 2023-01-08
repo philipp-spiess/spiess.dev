@@ -42,11 +42,6 @@ export default function Home({ posts, notes }: Props) {
             <p>
               A collection of my random thoughts. This is a place for me to
               write down raw ideas, so don’t expect a high bar for quality.
-              Inspired by Josh Branchaud’s{" "}
-              <a href="https://github.com/jbranchaud/til">til</a>, Lee Byron’s{" "}
-              <a href="https://leebyron.com/til/">til</a>, and Shawn Wang’s{" "}
-              <a href="https://www.swyx.io/learn-in-public/">Learn In Public</a>
-              .
             </p>
             <Notes notes={notes} />
           </section>
