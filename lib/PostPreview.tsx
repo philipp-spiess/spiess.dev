@@ -16,7 +16,7 @@ export default function PostPreview({ post }: Props) {
               {post.title}
             </Link>
           </h3>
-          <small>
+          <small className={styles.postSubtitle}>
             {post.formattedDate} • {post.readingTime}
           </small>
           <p>{post.excerpt}</p>
@@ -32,7 +32,7 @@ export default function PostPreview({ post }: Props) {
               {post.title}
             </Link>
           </h3>
-          <small>
+          <small className={styles.postSubtitle}>
             {post.formattedDate} • {domain}
           </small>
           <p>{post.excerpt}</p>

@@ -1,9 +1,14 @@
 .postTitle {
   margin-top: calc(2.5rem / 4 * 3);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 @media screen and (min-width: 500px) {
   .postTitle {
     margin-top: 2.5rem;
   }
+}
+
+.postSubtitle {
+  display: block;
+  margin-bottom: 0.5rem;
 }

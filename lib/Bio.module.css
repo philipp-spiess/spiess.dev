@@ -27,7 +27,7 @@
 }
 
 .ipa {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(var(--fg-color), 0.5);
 }
 
 .intro {

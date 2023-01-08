@@ -30,7 +30,7 @@
 .author {
   font-family: var(--marriweather);
   font-weight: 400;
-  color: #8e6e15;
+  color: var(--accent-color);
 }
 
 .headerContainer {
