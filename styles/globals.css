@@ -122,10 +122,20 @@ h2 {
   line-height: 1.1;
 }
 
+h2 code {
+  font-size: 1.73286rem;
+  line-height: 1.1;
+}
+
 h3 {
   margin: 0;
   padding: 0;
   margin-bottom: 1.75rem;
+  font-size: 1.4427rem;
+  line-height: 1.1;
+}
+
+h3 code {
   font-size: 1.4427rem;
   line-height: 1.1;
 }
@@ -139,6 +149,11 @@ h4 {
   line-height: 1.1;
   letter-spacing: 0.140625em;
   text-transform: uppercase;
+}
+
+h4 code {
+  font-size: 1rem;
+  line-height: 1.1;
 }
 
 p {
