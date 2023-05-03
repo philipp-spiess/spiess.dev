@@ -156,7 +156,7 @@ If this sounds super confusing to you, you're not alone! Here's what I ended up 
 
 ```ts
 type Infer<T extends LoggerConfig<any, any>> = {
-  [P in keyof T["fields"]]: T["fields"][P]["jsType"];
+  [Property in keyof T["fields"]]: T["fields"][Property]["jsType"];
 };
 ```
 
