@@ -122,7 +122,7 @@ function createLoggerConfig<
 }
 ```
 
-## ✨ The magical `Infer<>``
+## ✨ The magical `Infer<>`
 
 As mentioned in the beginning, one goal of this exercise was to later be able to map the schema declaration to a TypeScript object type which, for the example above, should look like this:
 
