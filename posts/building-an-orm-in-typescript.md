@@ -3,7 +3,7 @@ title: Building an ORM in TypeScript
 date: "2023-05-04T12:00:00.000Z"
 ---
 
-I've recently been working more with structured logging and as part of this, I wanted to build a TypeScript DSL for creating table definitions.
+I've recently been working more with structured logging and as part of this, I wanted to build a TypeScript ORM for creating table definitions.
 
 Inspired by [Drizzle ORM](https://github.com/drizzle-team/drizzle-orm) and [Zod](https://github.com/colinhacks/zod), my goal was to create the table definitions fully in TypeScript code so that I can generate the schema by simply executing the code, and also having an easy way to get the resulting TypeScript definitions:
 
@@ -17,7 +17,7 @@ const loggerConfig = createLoggerConfig("test", {
 
 Here is how I implemented this!
 
-_⚠️ This note makes heavy use of TypeScript generics. Make sure to [catch up on them](https://www.typescriptlang.org/docs/handbook/2/generics.html) before digging in._
+_⚠️ We make heavy use of TypeScript generics for this. Make sure to [catch up on them](https://www.typescriptlang.org/docs/handbook/2/generics.html) first._
 
 We start by implementing the `createLoggerConfig` function. It's typed as a generic with two generic types:
 
