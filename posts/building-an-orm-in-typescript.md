@@ -106,8 +106,6 @@ class LoggerConfig<
   F extends { [key: string]: Field<FieldType, unknown> }
 > {
   constructor(public event: E, public fields: F) {}
-
-  // We can later add more methods to generate a SQL schema and queries for it.
 }
 ```
 
