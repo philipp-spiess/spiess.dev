@@ -1,9 +1,9 @@
 ---
-title: Building an ORM in TypeScript
+title: Building a Schema Mapper in TypeScript
 date: "2023-05-04T12:00:00.000Z"
 ---
 
-I've recently been working more with structured logging and as part of this, I wanted to build a TypeScript ORM for creating table definitions.
+I've recently been working more with structured logging and as part of this, I wanted to build a TypeScript scheme mapper for creating table definitions.
 
 Inspired by [Drizzle ORM](https://github.com/drizzle-team/drizzle-orm) and [Zod](https://github.com/colinhacks/zod), my goal was to create the table definitions fully in TypeScript code so that I can generate the schema by simply executing the code, and also having an easy way to get the resulting TypeScript definitions:
 
@@ -160,6 +160,6 @@ type Infer<T extends LoggerConfig<any, any>> = {
 
 Pretty awesome! If we wire everything up together and use the power of the TypeScript IDE integrations, we can see hover over the inferred type and see that it works as we expect it to:
 
-![Screenshot of a hover tooltip in TypeScript showing the inferred type as outlined above](/blog/building-an-orm-in-typescript/hover.png)
+![Screenshot of a hover tooltip in TypeScript showing the inferred type as outlined above](/blog/building-a-scheme-mapper-in-typescript/hover.png)
 
 Check out the [TypeScript playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglhANgEwCrmgXigIgM7ABOcAdgOY5QA+uAZogPYCGwAbACyU07IsTBwAthBwBuAFDiAxoiZ48sBCgA8qKBAAewCCWQL4SNBgA0UAFIBlNZu26FAVxIBrEgwDuJAHxQA3uKhQUgwkBIT2UsAMhAAUYPYARohwUlCgkABcUKimcYnJUABWeOgZ5lYAlL4AvuI14rSOEXDBUKGkZNHlmQYq+ETtOKZt5N5+AYT89oQkUCQQboqG0X3E5IO4OOUSdQ0kTS30zGzsnd1KyMo4hywc6yT2gvEQhKP+UBPAUzNzCz3Iy9djusAAxbWqSXb7Ga8bQCYSnRa9GH8IQiUwAET4r3Gk2ms3miP+PD4cLR+IWmO0nTBO0aAhaUgmfAAMgwyGRngBhYK0OBkZRvACi6i0Oj0rX65GMbxgIts4p8UAA2k4ICBMsMyABdM6GZRMEggUwGkDeGqeaIQABuOmAmUFpl5hjw3S6UFZ7K5PL5ygdsGx71x3wJHo5hG5JF5-L9MAt1ttjvOeBpkhkcgUoa9kZ9QrlYoUmulAVlNnzvmVqvVEtW2t1Kj+JQgpkcLncXig5t8byCISI4UiMVySRS8ZIdqgfqH+SdKBdsEqPhqdTS0AAkpHnqo83Z3WywxGo-rDcbDZ5vNgxsqAApQUhQSsMWhZJVXJM4LU65+v53vpVXrUvkUjbvtsEipsEBBQIwnrht6ZBQNgjIQCye5ZlGyzaAQ6yXsI8hMByGqSh05RFu8BrIAwggAHIPE8hCZICHCdKRpIEEwghgJkyKksxtRguIK5ZBAkHYOutCbiuj5QahsHZmQngSEAA) to play around with it yourself!
