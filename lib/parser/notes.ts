@@ -11,8 +11,6 @@ export interface Note {
 }
 
 const TOKEN = process.env.GITHUB_TOKEN;
-const COMMITS_URL =
-  "https://api.github.com/repos/philipp-spiess/philipp-spiess/commits?page=1&per_page=100&path=";
 const GRAPHQL_URL = "https://api.github.com/graphql";
 const HIDDEN_FILES = new Set(["README.md"]);
 const HIDDEN_DIRS = new Set(["Unlisted"]);
@@ -75,10 +73,7 @@ export async function getNotes(): Promise<Note[]> {
   for (const rawNote of rawNotes) {
     const { data, contentHtml } = await parseMarkdown(rawNote.content);
 
-    const date =
-      data.date instanceof Date
-        ? data.date.toISOString()
-        : await legacy_getCreationDateFromGit(rawNote.path);
+    const date = data.date instanceof Date ? data.date.toISOString() : null;
 
     notes.push({
       title: rawNote.path.split("/").pop().replace(".md", ""),
@@ -153,14 +148,6 @@ function recursivelyResolveEntries(tree: GitHubTree): RawNote[] {
     }
   }
   return result;
-}
-
-async function legacy_getCreationDateFromGit(path: string): Promise<string> {
-  const commits = await fetch(COMMITS_URL + path, {
-    headers,
-  }).then((r) => r.json());
-  const firstCommit = commits[commits.length - 1];
-  return firstCommit.commit.author.date;
 }
 
 function getId(text: string): string {
