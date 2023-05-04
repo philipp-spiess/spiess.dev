@@ -1,6 +1,6 @@
 ---
 title: Building a Schema Mapper in TypeScript
-date: "2023-05-04T12:00:00.000Z"
+date: "2023-05-03T12:00:00.000Z"
 ---
 
 I've recently been working more with structured logging and as part of this, I wanted to build a TypeScript scheme mapper for creating table definitions.
