@@ -46,8 +46,6 @@ function logView(): void {
   log("pageview", {
     origin: window.location.origin,
     pathname: lastViewedPage,
-    userAgent: window.navigator.userAgent,
-    language: window.navigator.language,
     referrer: document.referrer,
   });
 }
