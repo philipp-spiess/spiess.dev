@@ -7,6 +7,7 @@ import Head from "next/head";
 import type { AppProps } from "next/app";
 
 import styles from "./_app.module.css";
+import LogkitAnalytics from "../lib/LogkitAnalytics";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </div>
       <Analytics />
+      <LogkitAnalytics />
     </>
   );
 }
