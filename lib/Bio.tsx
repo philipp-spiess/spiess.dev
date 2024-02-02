@@ -56,7 +56,7 @@ export default function Bio({ direction }: Props) {
           >
             React DOM
           </Link>{" "}
-          team member, and Lead Engineer at{" "}
+          team member, and Team Lead at{" "}
           <Link
             href="https://pspdfkit.com"
             target="_blank"
@@ -64,7 +64,7 @@ export default function Bio({ direction }: Props) {
           >
             PSPDFKit
           </Link>
-          . Loves fixing Web things.
+          .
         </p>
         <ul className={styles.list}>
           <li>
