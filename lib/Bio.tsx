@@ -3,9 +3,8 @@ import Avatar from "./Avatar";
 import styles from "./Bio.module.css";
 
 export const description =
-  "Engineer at Sourcegraph. Prev: Front End Engineer at Meta, curator of " +
-  "This Week in React, React DOM team member, and Lead Engineer at PSPDFKit. " +
-  "Loves fixing Web things.";
+  "Engineer at Sourcegraph. Prev: UI Engineer at Meta, curator of " +
+  "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
 
 interface Props {
   direction?: "row" | "column";
@@ -32,7 +31,7 @@ export default function Bio({ direction }: Props) {
           >
             Sourcegraph
           </Link>
-          . Prev: Front End Engineer at{" "}
+          . Prev: UI Engineer at{" "}
           <Link
             href="https://facebook.com"
             target="_blank"
