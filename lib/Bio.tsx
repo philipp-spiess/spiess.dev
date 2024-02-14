@@ -86,15 +86,6 @@ export default function Bio({ direction }: Props) {
           </li>
           <li>
             <Link
-              href="https://hachyderm.io/@philippspiess"
-              target="_blank"
-              rel="me"
-            >
-              Mastodon
-            </Link>
-          </li>
-          <li>
-            <Link
               href="https://www.linkedin.com/in/philipp-spiess/"
               target="_blank"
               rel="noopener noreferrer"
