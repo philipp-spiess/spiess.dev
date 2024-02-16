@@ -25,7 +25,7 @@ export async function getStaticProps({
   const note = notes.find((note) => note.id === params.slug.join("/"));
   return {
     props: { note: note, notes },
-    revalidate: 60 * 60,
+    revalidate: 5 * 60,
   };
 }
 
