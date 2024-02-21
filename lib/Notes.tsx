@@ -1,10 +1,10 @@
-import { Note } from "./parser/notes";
-import Link from "next/link";
-import React from "react";
-import styles from "./Notes.module.css";
+import { Note } from "./parser/notes"
+import Link from "next/link"
+import React from "react"
+import styles from "./Notes.module.css"
 
 interface Props {
-  notes: Note[];
+  notes: Note[]
 }
 export default function Notes({ notes }: Props) {
   return (
@@ -18,7 +18,7 @@ export default function Notes({ notes }: Props) {
                 <span className={styles.separator}>/</span>
               </React.Fragment>
             ))}
-            <Link style={{ boxShadow: `none` }} href={"/note/" + note.id}>
+            <Link style={{ boxShadow: "none" }} href={`/note/${note.id}`}>
               {note.title}
             </Link>
           </div>
@@ -26,5 +26,5 @@ export default function Notes({ notes }: Props) {
         </div>
       ))}
     </>
-  );
+  )
 }

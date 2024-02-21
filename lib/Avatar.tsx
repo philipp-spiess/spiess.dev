@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from "next/image"
 
 interface Props {
-  width: number;
+  width: number
 }
 
 export default function Avatar({ width }: Props) {
@@ -13,9 +13,9 @@ export default function Avatar({ width }: Props) {
       width={width}
       height={width}
       style={{
-        borderRadius: `50%`,
+        borderRadius: "50%",
       }}
       alt="Philipp Spiess"
     />
-  );
+  )
 }

@@ -1,6 +1,7 @@
-import styles from "./404.module.css";
+import styles from "./404.module.css"
 
-export default function FourOhFour() {
+// A test form for form automation
+export default function Form() {
   return (
     <div className={styles.container}>
       <form method="POST">
@@ -82,5 +83,5 @@ export default function FourOhFour() {
         <button type="submit">Continue</button>
       </form>
     </div>
-  );
+  )
 }

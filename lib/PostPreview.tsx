@@ -1,10 +1,10 @@
-import Link from "next/link";
-import styles from "./PostPreview.module.css";
+import Link from "next/link"
+import styles from "./PostPreview.module.css"
 
-import { Post } from "./parser/post";
+import { Post } from "./parser/post"
 
 interface Props {
-  post: Post;
+  post: Post
 }
 export default function PostPreview({ post }: Props) {
   switch (post.type) {
@@ -12,7 +12,7 @@ export default function PostPreview({ post }: Props) {
       return (
         <div key={post.id}>
           <h3 className={styles.postTitle}>
-            <Link style={{ boxShadow: `none` }} href={"/blog/" + post.id}>
+            <Link style={{ boxShadow: "none" }} href={`/blog/${post.id}`}>
               {post.title}
             </Link>
           </h3>
@@ -21,14 +21,14 @@ export default function PostPreview({ post }: Props) {
           </small>
           <p>{post.excerpt}</p>
         </div>
-      );
+      )
     }
     case "external": {
-      const domain = post.external.split("/")[2];
+      const domain = post.external.split("/")[2]
       return (
         <div key={post.id}>
           <h3 className={styles.postTitle}>
-            <Link href={post.external} style={{ boxShadow: `none` }}>
+            <Link href={post.external} style={{ boxShadow: "none" }}>
               {post.title}
             </Link>
           </h3>
@@ -37,8 +37,8 @@ export default function PostPreview({ post }: Props) {
           </small>
           <p>{post.excerpt}</p>
         </div>
-      );
+      )
     }
   }
-  return null;
+  return null
 }

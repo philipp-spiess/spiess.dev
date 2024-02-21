@@ -1,37 +1,37 @@
-import Head from "next/head";
-import styles from "./[...slug].module.css";
+import Head from "next/head"
+import styles from "./[...slug].module.css"
 
-import { bold } from "../../lib/fonts";
-import { getNotes, Note } from "../../lib/parser/notes";
-import ArticleHeader from "../../lib/ArticleHeader";
-import Notes from "../../lib/Notes";
-import React from "react";
-import Bio from "../../lib/Bio";
+import { bold } from "../../lib/fonts"
+import { getNotes, Note } from "../../lib/parser/notes"
+import ArticleHeader from "../../lib/ArticleHeader"
+import Notes from "../../lib/Notes"
+import React from "react"
+import Bio from "../../lib/Bio"
 
 export async function getStaticPaths() {
-  const paths = (await getNotes()).map((note) => "/note/" + note.id);
+  const paths = (await getNotes()).map((note) => `/note/${note.id}`)
   return {
     paths,
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps({
   params,
 }: {
-  params: { slug: string[] };
+  params: { slug: string[] }
 }) {
-  const notes = await getNotes();
-  const note = notes.find((note) => note.id === params.slug.join("/"));
+  const notes = await getNotes()
+  const note = notes.find((note) => note.id === params.slug.join("/"))
   return {
     props: { note: note, notes },
-    revalidate: 5 * 60,
-  };
+    revalidate: 60 * 60,
+  }
 }
 
 interface Props {
-  note: Note;
-  notes: Note[];
+  note: Note
+  notes: Note[]
 }
 export default function Slug({ note, notes }: Props) {
   return (
@@ -45,9 +45,9 @@ export default function Slug({ note, notes }: Props) {
         <meta
           property="og:image"
           content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
-            note.title
+            note.title,
           )}&date=${encodeURIComponent(
-            note.formattedDate
+            note.formattedDate,
           )}&sub=${encodeURIComponent(note.category.join("/"))}`}
         />
       </Head>
@@ -82,5 +82,5 @@ export default function Slug({ note, notes }: Props) {
         <Bio direction="row" />
       </div>
     </>
-  );
+  )
 }

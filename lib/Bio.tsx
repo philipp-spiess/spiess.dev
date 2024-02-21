@@ -1,13 +1,13 @@
-import Link from "next/link";
-import Avatar from "./Avatar";
-import styles from "./Bio.module.css";
+import Link from "next/link"
+import Avatar from "./Avatar"
+import styles from "./Bio.module.css"
 
 export const description =
   "Engineer at Sourcegraph. Prev: UI Engineer at Meta, curator of " +
-  "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
+  "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
 
 interface Props {
-  direction?: "row" | "column";
+  direction?: "row" | "column"
 }
 export default function Bio({ direction }: Props) {
   return (
@@ -31,7 +31,9 @@ export default function Bio({ direction }: Props) {
           >
             Sourcegraph
           </Link>
-          . Prev: UI Engineer at{" "}
+          .
+          <br />
+          Prev: UI Engineer at{" "}
           <Link
             href="https://facebook.com"
             target="_blank"
@@ -96,5 +98,5 @@ export default function Bio({ direction }: Props) {
         </ul>
       </div>
     </div>
-  );
+  )
 }

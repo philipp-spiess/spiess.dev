@@ -1,11 +1,11 @@
-import Avatar from "./Avatar";
-import Link from "next/link";
-import React from "react";
-import styles from "./ArticleHeader.module.css";
+import Avatar from "./Avatar"
+import Link from "next/link"
+import React from "react"
+import styles from "./ArticleHeader.module.css"
 
 interface Props {
-  containerClass: string;
-  type: "note" | "blog";
+  containerClass: string
+  type: "note" | "blog"
 }
 export default function ArticleHeader(props: Props) {
   return (
@@ -25,5 +25,5 @@ export default function ArticleHeader(props: Props) {
         </div>
       </div>
     </header>
-  );
+  )
 }

@@ -1,35 +1,35 @@
-import { BlogPost, getPost, Post } from "../../lib/parser/post";
-import { getPosts } from "../../lib/parser/posts";
-import ArticleHeader from "../../lib/ArticleHeader";
-import Avatar from "../../lib/Avatar";
-import Bio from "../../lib/Bio";
-import Head from "next/head";
-import Link from "next/link";
-import styles from "./[slug].module.css";
+import { BlogPost, getPost, Post } from "../../lib/parser/post"
+import { getPosts } from "../../lib/parser/posts"
+import ArticleHeader from "../../lib/ArticleHeader"
+import Avatar from "../../lib/Avatar"
+import Bio from "../../lib/Bio"
+import Head from "next/head"
+import Link from "next/link"
+import styles from "./[slug].module.css"
 
-import { bold } from "../../lib/fonts";
+import { bold } from "../../lib/fonts"
 
 export async function getStaticPaths() {
   const paths = (await getPosts())
     .filter((post) => post.type === "blog")
-    .map((post) => "/blog/" + post.id);
+    .map((post) => `/blog/${post.id}`)
   return {
     paths,
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   return {
     props: { post: await getPost(params.slug) },
-  };
+  }
 }
 
 interface Props {
-  post: BlogPost;
+  post: BlogPost
 }
 export default function Slug(props: Props) {
-  const { post } = props;
+  const { post } = props
   return (
     <>
       <Head>
@@ -39,9 +39,9 @@ export default function Slug(props: Props) {
         <meta
           property="og:image"
           content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
-            post.title
+            post.title,
           )}&date=${encodeURIComponent(
-            post.formattedDate
+            post.formattedDate,
           )}&sub=${encodeURIComponent(post.readingTime)}`}
         />
       </Head>
@@ -63,5 +63,5 @@ export default function Slug(props: Props) {
         <Bio direction="row" />
       </div>
     </>
-  );
+  )
 }

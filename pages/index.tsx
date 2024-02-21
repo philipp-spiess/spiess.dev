@@ -1,26 +1,26 @@
-import { getPosts } from "../lib/parser/posts";
-import { Post } from "../lib/parser/post";
-import Bio, { description } from "../lib/Bio";
-import Head from "next/head";
-import PostPreview from "../lib/PostPreview";
-import styles from "./index.module.css";
-import Notes from "../lib/Notes";
-import { getNotes, Note } from "../lib/parser/notes";
+import { getPosts } from "../lib/parser/posts"
+import { Post } from "../lib/parser/post"
+import Bio, { description } from "../lib/Bio"
+import Head from "next/head"
+import PostPreview from "../lib/PostPreview"
+import styles from "./index.module.css"
+import Notes from "../lib/Notes"
+import { getNotes, Note } from "../lib/parser/notes"
 
 export async function getStaticProps() {
-  const [posts, notes] = await Promise.all([getPosts(), getNotes()]);
+  const [posts, notes] = await Promise.all([getPosts(), getNotes()])
   return {
     props: {
       posts,
       notes,
     },
-    revalidate: 60 * 60,
-  };
+    revalidate: 5 * 60,
+  }
 }
 
 interface Props {
-  posts: Post[];
-  notes: Note[];
+  posts: Post[]
+  notes: Note[]
 }
 export default function Home({ posts, notes }: Props) {
   return (
@@ -55,5 +55,5 @@ export default function Home({ posts, notes }: Props) {
         </main>
       </div>
     </>
-  );
+  )
 }
