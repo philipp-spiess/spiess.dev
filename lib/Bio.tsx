@@ -31,6 +31,7 @@ export default function Bio({ direction }: Props) {
           >
             Sourcegraph
           </Link>
+          .
           <br />
           Prev: UI Engineer at{" "}
           <Link
@@ -64,6 +65,7 @@ export default function Bio({ direction }: Props) {
           >
             PSPDFKit
           </Link>
+          .
         </p>
         <ul className={styles.list}>
           <li>
