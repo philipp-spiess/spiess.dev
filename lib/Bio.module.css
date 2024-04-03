@@ -43,7 +43,6 @@
 .list > li {
   margin: calc(1.75rem / 6);
   margin-top: 0;
-  flex-grow: 1;
 }
 .list > li:first-child {
   margin-left: 0;

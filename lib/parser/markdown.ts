@@ -1,11 +1,11 @@
 import { remark } from "remark"
 
+import matter from "gray-matter"
+import readingTime from "reading-time"
+import remarkFootnotes from "remark-footnotes"
 import html from "remark-html"
 import prism from "remark-prism"
-import matter from "gray-matter"
-import remarkFootnotes from "remark-footnotes"
 import { excerpt } from "./excerpt"
-import readingTime from "reading-time"
 
 export async function parseMarkdown(markdown: string): Promise<{
   data: any
@@ -19,8 +19,8 @@ export async function parseMarkdown(markdown: string): Promise<{
   let { content, data } = matterResult
 
   content = content
-    .replaceAll(/\[x\]/g, "<input type='checkbox' checked disabled />")
-    .replaceAll(/\[.?\]/g, "<input type='checkbox' disabled />")
+    .replaceAll(/\-\ \[x\]/g, "<input type='checkbox' checked disabled />")
+    .replaceAll(/\-\ \[.?\]/g, "<input type='checkbox' disabled />")
 
   const processedContent = await remark()
     .use(html, { sanitize: false })
