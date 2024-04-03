@@ -19,8 +19,11 @@ export async function parseMarkdown(markdown: string): Promise<{
   let { content, data } = matterResult
 
   content = content
-    .replaceAll(/\-\ \[x\]/g, "<input type='checkbox' checked disabled />")
-    .replaceAll(/\-\ \[.?\]/g, "<input type='checkbox' disabled />")
+    .replaceAll(
+      /(\-\ )(\[x\])/g,
+      "$1<input type='checkbox' checked disabled />",
+    )
+    .replaceAll(/(\-\ )(\[.?\])/g, "$1<input type='checkbox' disabled />")
 
   const processedContent = await remark()
     .use(html, { sanitize: false })
