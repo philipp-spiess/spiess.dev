@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@logkit/client': 0.0.0-3d07879
+  '@logkit/client-react': 0.0.0-89854cf
   '@next/font': ^13.0.0
   '@types/node': 18.11.5
   '@types/react': 18.0.23
@@ -24,7 +24,7 @@ specifiers:
   typescript: 4.8.4
 
 dependencies:
-  '@logkit/client': 0.0.0-3d07879
+  '@logkit/client-react': 0.0.0-89854cf_react@18.2.0
   '@next/font': 13.1.1
   '@vercel/analytics': 0.1.6_react@18.2.0
   '@vercel/og': 0.0.20
@@ -102,8 +102,12 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@logkit/client/0.0.0-3d07879:
-    resolution: {integrity: sha512-K2WCxlYFbzrkyvz3MFRU/BPVOJJClZ4cX1gD26U0aT9TFrhOjNvti6vFp9MXBxeRdmfSaiwVi0klmSpg+7IwYg==}
+  /@logkit/client-react/0.0.0-89854cf_react@18.2.0:
+    resolution: {integrity: sha512-3CT2bL8jgtiOvktMZ2iiWEoI5Nt+3BZECxduJqbOvcrW8hKAZMo21mxGWDGR3I78yyZA+PbnbMmFeFruB+2WRA==}
+    peerDependencies:
+      react: '>17'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@next/env/13.0.0:

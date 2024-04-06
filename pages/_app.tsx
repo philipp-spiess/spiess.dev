@@ -1,13 +1,13 @@
-import "../styles/editor.css";
-import "../styles/globals.css";
+import "../styles/editor.css"
+import "../styles/globals.css"
 
-import { Analytics } from "@vercel/analytics/react";
-import { normal, bold, italic } from "../lib/fonts";
-import Head from "next/head";
-import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react"
+import type { AppProps } from "next/app"
+import Head from "next/head"
+import { bold, italic, normal } from "../lib/fonts"
 
-import styles from "./_app.module.css";
-import LogkitAnalytics from "../lib/LogkitAnalytics";
+import { LogkitAnalytics } from "@logkit/client-react"
+import styles from "./_app.module.css"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -29,5 +29,5 @@ export default function App({ Component, pageProps }: AppProps) {
       <Analytics />
       <LogkitAnalytics />
     </>
-  );
+  )
 }
