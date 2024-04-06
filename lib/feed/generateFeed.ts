@@ -5,31 +5,22 @@ import type { Note } from "../parser/notes"
 import type { Post } from "../parser/post"
 
 const generateRssItem = (postOrNote: Post | Note): string => {
-  if ("category" in postOrNote) {
-    const url = `https://spiess.dev/note/${postOrNote.id}`
-    return `
+  const url =
+    "category" in postOrNote
+      ? `https://spiess.dev/note/${postOrNote.id}`
+      : postOrNote.type === "external"
+        ? postOrNote.external
+        : `https://spiess.dev/blog/${postOrNote.id}`
+
+  return `
     <item>
       <guid>${url}</guid>
       <title>${postOrNote.title}</title>
       <link>${url}</link>
+      <description>${postOrNote.excerpt}</description>
       <pubDate>${new Date(postOrNote.date).toUTCString()}</pubDate>
     </item>
   `
-  }
-
-  const url =
-    postOrNote.type === "external"
-      ? postOrNote.external
-      : `https://spiess.dev/blog/${postOrNote.id}`
-  return `
-  <item>
-    <guid>${url}</guid>
-    <title>${postOrNote.title}</title>
-    <link>${url}</link>
-    <description>${postOrNote.excerpt}</description>
-    <pubDate>${new Date(postOrNote.date).toUTCString()}</pubDate>
-  </item>
-`
 }
 
 const generateRss = (postOrNote: (Post | Note)[]): string => `

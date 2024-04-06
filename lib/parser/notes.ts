@@ -8,6 +8,7 @@ export interface Note {
   date: string
   category: string[]
   contentHtml: string
+  excerpt: string
 }
 
 const TOKEN = process.env.GITHUB_TOKEN
@@ -70,7 +71,7 @@ export async function getNotes(): Promise<Note[]> {
   const notes: Note[] = []
   const rawNotes = (await fetchNotes()) as any
   for (const rawNote of rawNotes) {
-    const { data, contentHtml } = await parseMarkdown(rawNote.content)
+    const { data, contentHtml, excerpt } = await parseMarkdown(rawNote.content)
 
     const date = data.date instanceof Date ? data.date.toISOString() : null
 
@@ -80,6 +81,7 @@ export async function getNotes(): Promise<Note[]> {
       date,
       formattedDate: format(new Date(date), "LLLL d, Y"),
       category: rawNote.path.split("/").slice(0, -1),
+      excerpt,
       contentHtml,
     })
   }

@@ -33,6 +33,12 @@ export default function Home({ posts, notes }: Props) {
         <title>spiess.dev</title>
         <meta property="og:title" content="spiess.dev" />
         <meta property="og:description" content={description} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed"
+          href="/feed.xml"
+        />
       </Head>
 
       <div className={styles.container}>

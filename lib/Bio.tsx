@@ -3,7 +3,7 @@ import Avatar from "./Avatar"
 import styles from "./Bio.module.css"
 
 export const description =
-  "Engineer at Sourcegraph. Prev: UI Engineer at Meta, curator of " +
+  "Philipp Spiess is an Engineer at Sourcegraph. Prev: UI Engineer at Meta, curator of " +
   "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
 
 interface Props {
