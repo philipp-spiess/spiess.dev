@@ -18,6 +18,7 @@ export async function parseMarkdown(markdown: string): Promise<{
 
   let { content, data } = matterResult
 
+  const excerptContent = excerpt(content)
   content = content
     .replaceAll(
       /(\-\ )(\[x\])/g,
@@ -35,7 +36,7 @@ export async function parseMarkdown(markdown: string): Promise<{
   return {
     data,
     contentHtml,
-    excerpt: excerpt(content),
+    excerpt: excerptContent,
     readingTime: readingTime(content).text,
   }
 }

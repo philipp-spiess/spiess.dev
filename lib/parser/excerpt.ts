@@ -14,5 +14,5 @@ export function excerpt(text: string, limit = 144) {
     }
   }
 
-  return result
+  return result.trim()
 }
