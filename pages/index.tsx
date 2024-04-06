@@ -1,14 +1,18 @@
-import { getPosts } from "../lib/parser/posts"
-import { Post } from "../lib/parser/post"
-import Bio, { description } from "../lib/Bio"
 import Head from "next/head"
+import Bio, { description } from "../lib/Bio"
+import { generateFeed } from "../lib/feed/generateFeed"
+import Notes from "../lib/Notes"
+import { getNotes, type Note } from "../lib/parser/notes"
+import type { Post } from "../lib/parser/post"
+import { getPosts } from "../lib/parser/posts"
 import PostPreview from "../lib/PostPreview"
 import styles from "./index.module.css"
-import Notes from "../lib/Notes"
-import { getNotes, Note } from "../lib/parser/notes"
 
 export async function getStaticProps() {
   const [posts, notes] = await Promise.all([getPosts(), getNotes()])
+
+  await generateFeed(posts, notes)
+
   return {
     props: {
       posts,
@@ -26,8 +30,8 @@ export default function Home({ posts, notes }: Props) {
   return (
     <>
       <Head>
-        <title>Philipp Spiess</title>
-        <meta property="og:title" content="Philipp Spiess" />
+        <title>spiess.dev</title>
+        <meta property="og:title" content="spiess.dev" />
         <meta property="og:description" content={description} />
       </Head>
 

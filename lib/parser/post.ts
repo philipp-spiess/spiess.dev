@@ -1,8 +1,8 @@
 import { postsDirectory } from "./posts"
 
 import format from "date-fns/format"
-import fs from "fs/promises"
-import path from "path"
+import fs from "node:fs/promises"
+import path from "node:path"
 import { parseMarkdown } from "./markdown"
 
 interface ExternalPost {

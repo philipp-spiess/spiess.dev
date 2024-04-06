@@ -1,6 +1,6 @@
-import fs from "fs/promises"
-import path from "path"
-import { getPost, Post } from "./post"
+import fs from "node:fs/promises"
+import path from "node:path"
+import { getPost, type Post } from "./post"
 
 export const postsDirectory = path.join(process.cwd(), "posts")
 
