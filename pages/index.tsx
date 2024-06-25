@@ -18,7 +18,7 @@ export async function getStaticProps() {
       posts,
       notes,
     },
-    revalidate: 5 * 60,
+    revalidate: 12 * 60 * 60,
   }
 }
 
