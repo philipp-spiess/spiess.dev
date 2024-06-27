@@ -79,7 +79,7 @@ export async function getNotes(): Promise<Note[]> {
       title: rawNote.path.split("/").pop().replace(".md", ""),
       id: getId(rawNote.path),
       date,
-      formattedDate: format(new Date(date), "LLLL d, Y"),
+      formattedDate: format(new Date(date), "LLLL d, y"),
       category: rawNote.path.split("/").slice(0, -1),
       excerpt,
       contentHtml,
