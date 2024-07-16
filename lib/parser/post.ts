@@ -42,7 +42,7 @@ export async function getPost(id: string): Promise<Post> {
     ...data,
     type: data.external ? "external" : "blog",
     excerpt,
-    formattedDate: format(new Date(data.date), "LLLL d, y"),
+    formattedDate: format(new Date(data.date), "LLLL d, Y"),
     readingTime,
     contentHtml,
   } as Post
