@@ -3,7 +3,7 @@ import Avatar from "./Avatar"
 import styles from "./Bio.module.css"
 
 export const description =
-  "Philipp Spiess is an Engineer at Sourcegraph. Prev: UI Engineer at Meta, curator of " +
+  "Philipp Spiess is a Software Engineer with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
   "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
 
 interface Props {
@@ -23,7 +23,7 @@ export default function Bio({ direction }: Props) {
         </div>
 
         <p className={styles.intro}>
-          Engineer at{" "}
+          Prev: Engineer at{" "}
           <Link
             href="https://sourcegraph.com"
             target="_blank"
@@ -31,9 +31,7 @@ export default function Bio({ direction }: Props) {
           >
             Sourcegraph
           </Link>
-          .
-          <br />
-          Prev: UI Engineer at{" "}
+          {" "}and{" "}
           <Link
             href="https://facebook.com"
             target="_blank"
