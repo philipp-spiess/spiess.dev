@@ -1,13 +1,13 @@
-import Link from "next/link"
-import Avatar from "./Avatar"
-import styles from "./Bio.module.css"
+import Link from "next/link";
+import Avatar from "./Avatar";
+import styles from "./Bio.module.css";
 
 export const description =
-  "Philipp Spiess is a Software Engineer with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
-  "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
+  "Philipp Spiess is an engineer at Tailwind with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
+  "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
 
 interface Props {
-  direction?: "row" | "column"
+  direction?: "row" | "column";
 }
 export default function Bio({ direction }: Props) {
   return (
@@ -23,6 +23,15 @@ export default function Bio({ direction }: Props) {
         </div>
 
         <p className={styles.intro}>
+          Engineer at{" "}
+          <Link
+            href="https://tailwindcss.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tailwind
+          </Link>
+          .<br />
           Prev: Engineer at{" "}
           <Link
             href="https://sourcegraph.com"
@@ -30,8 +39,8 @@ export default function Bio({ direction }: Props) {
             rel="noopener noreferrer"
           >
             Sourcegraph
-          </Link>
-          {" "}and{" "}
+          </Link>{" "}
+          and{" "}
           <Link
             href="https://facebook.com"
             target="_blank"
@@ -96,5 +105,5 @@ export default function Bio({ direction }: Props) {
         </ul>
       </div>
     </div>
-  )
+  );
 }
