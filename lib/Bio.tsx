@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import styles from "./Bio.module.css";
 
 export const description =
-  "Philipp Spiess is an engineer at Tailwind with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
+  "Philipp Spiess is an engineer at Tailwind Labs with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
   "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
 
 interface Props {
@@ -29,7 +29,7 @@ export default function Bio({ direction }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tailwind
+            Tailwind Labs
           </Link>
           .<br />
           Prev: Engineer at{" "}
