@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # All tests
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # The pnpm GitHub action does not support reading the version from
+      # .tool-versions yet so we have to be creative.
+      - name: Read .tool-versions
+        uses: marocchino/tool-versions-action@v1
+        id: versions
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: ${{ steps.versions.outputs.pnpm}}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 💅 Run checks
+        run: pnpm run check
+
+      - name: 🧪 Run tests
+        run: pnpm run test
+
+      - name: 👷‍♀️ Build
+        run: pnpm run build
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://spiess.dev.spiess.dev
+    needs: [test]
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # The pnpm GitHub action does not support reading the version from
+      # .tool-versions yet so we have to be creative.
+      - name: Read .tool-versions
+        uses: marocchino/tool-versions-action@v1
+        id: versions
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: ${{ steps.versions.outputs.pnpm}}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👷‍♀️ Build
+        run: pnpm run build
+
+      - name: 🗄 Migrate
+        run: pnpm wrangler d1 migrations apply spiess.dev
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: d024011cfcb16e10d259663efa2f21eb
+
+      - name: 🚀 Deploy
+        run: pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: d024011cfcb16e10d259663efa2f21eb
