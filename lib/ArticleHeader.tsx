@@ -1,7 +1,6 @@
 import Avatar from "./Avatar"
 import Link from "next/link"
 import React from "react"
-import styles from "./ArticleHeader.module.css"
 
 interface Props {
   containerClass: string
@@ -9,17 +8,14 @@ interface Props {
 }
 export default function ArticleHeader(props: Props) {
   return (
-    <header className={styles.header}>
-      <div className={`${props.containerClass} ${styles.headerContainer}`}>
+    <header className="w-full">
+      <div className={`${props.containerClass} justify-between h-14 flex items-center`}>
+        <Link href="/" className="shadow-none flex items-center text-(--fg-color)">
+          <Avatar width={30} className="mb-0"/>
+          <h3 className="mb-0 mx-3 font-bold text-lg vertical-align-top">spiess.dev</h3>
+        </Link>
         <div>
-          <Link href="/" className={styles.authorLink}>
-            <Avatar width={30} />
-            <h3 className={styles.author}>Philipp Spiess</h3>
-          </Link>
-        </div>
-        <div className={styles.spacer} />
-        <div>
-          <Link href="/">
+          <Link href="/" className="text-(--fg-color)">
             All {props.type === "note" ? "Notes" : "Articles"}
           </Link>
         </div>

@@ -6,7 +6,6 @@ import { getNotes, type Note } from "../lib/parser/notes"
 import type { Post } from "../lib/parser/post"
 import { getPosts } from "../lib/parser/posts"
 import PostPreview from "../lib/PostPreview"
-import styles from "./index.module.css"
 
 export async function getStaticProps() {
   const [posts, notes] = await Promise.all([getPosts(), getNotes()])
@@ -28,11 +27,14 @@ interface Props {
 }
 export default function Home({ posts, notes }: Props) {
   return (
-    <>
+   <>
       <Head>
         <title>spiess.dev</title>
         <meta property="og:title" content="spiess.dev" />
         <meta property="og:description" content={description} />
+        <meta property="og:image"
+         content="https://spiess.dev/api/og?title=spiess.dev&sub=&date="
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -41,14 +43,14 @@ export default function Home({ posts, notes }: Props) {
         />
       </Head>
 
-      <div className={styles.container}>
-        <aside className={styles.left}>
+      <div className="min-h-screen max-w-[1000px] mx-auto md:grid md:grid-cols-[350px_minmax(0,1fr)]">
+        <aside className="flex flex-col items-center pt-8 px-2 md:px-7 md:pt-14 md:w-[350px]">
           <Bio />
         </aside>
 
-        <main className={styles.right}>
+        <main className="px-2 md:px-8">
           <section>
-            <h2 className={styles.sectionTitle}>Notes</h2>
+            <h2 className="mt-12 mb-6 md:mt-14">Notes</h2>
             <p>
               A collection of my random thoughts. This is a place for me to
               write down raw ideas, so don’t expect a high bar for quality.
@@ -57,7 +59,7 @@ export default function Home({ posts, notes }: Props) {
           </section>
 
           <section>
-            <h2 className={styles.sectionTitle}>Posts</h2>
+            <h2 className="mt-12 mb-6 md:mt-14">Posts</h2>
             {posts.map((post) => (
               <PostPreview key={post.id} post={post} />
             ))}

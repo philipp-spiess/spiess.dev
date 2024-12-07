@@ -44,7 +44,7 @@ export default function Slug({ note, notes }: Props) {
         <meta property="og:title" content={note.title} />
         <meta
           property="og:image"
-          content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
+          content={`https://spiess.dev/api/og?title=${encodeURIComponent(
             note.title,
           )}&date=${encodeURIComponent(
             note.formattedDate,
@@ -55,7 +55,7 @@ export default function Slug({ note, notes }: Props) {
       <ArticleHeader type="note" containerClass={styles.container} />
 
       <div className={`${styles.container} ${styles.post} post`}>
-        <h1 className={bold.className} style={{ marginBottom: 0 }}>
+        <h1 className="text-bold" style={{ marginBottom: 0 }}>
           {note.title}
         </h1>
         <p>

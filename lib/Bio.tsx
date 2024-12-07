@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Avatar from "./Avatar";
-import styles from "./Bio.module.css";
 
 export const description =
-  "Philipp Spiess is an engineer at Tailwind Labs with a focus on Web technologoies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
+  "Philipp Spiess is an engineer at Tailwind Labs with a focus on Web technologies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
   "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
 
 interface Props {
@@ -11,18 +10,18 @@ interface Props {
 }
 export default function Bio({ direction }: Props) {
   return (
-    <div className={`${styles.bio} bio`} style={{ flexDirection: direction }}>
-      <div className={styles.avatar}>
-        <Link href="/" className={styles.avatarLink}>
+    <div className={`text-left flex ${direction === "row" ? "flex-row" : "flex-col"}`}>
+      <div className="min-w-[116px] flex pt-2">
+        <Link href="/" className="shadow-none">
           <Avatar width={100} />
         </Link>
       </div>
       <div>
-        <div className={styles.title}>
-          Philipp Spiess <small className={styles.ipa}>[ˈʃpiːs]</small>
+        <div className="text-lg font-black">
+          Philipp Spiess <small className="text-(--muted-color)">[ˈʃpiːs]</small>
         </div>
 
-        <p className={styles.intro}>
+        <p className="my-5">
           Engineer at{" "}
           <Link
             href="https://tailwindcss.com"
@@ -74,8 +73,8 @@ export default function Bio({ direction }: Props) {
           </Link>
           .
         </p>
-        <ul className={styles.list}>
-          <li>
+        <ul className="m-0 flex list-none max-w-[300px]">
+          <li className="m-[0.29rem] mt-0 first:ml-0 last:mr-0">
             <Link
               href="https://twitter.com/philippspiess"
               target="_blank"
@@ -84,7 +83,7 @@ export default function Bio({ direction }: Props) {
               Twitter
             </Link>
           </li>
-          <li>
+          <li className="m-[0.29rem] mt-0 first:ml-0 last:mr-0">
             <Link
               href="https://github.com/philipp-spiess"
               target="_blank"
@@ -93,7 +92,7 @@ export default function Bio({ direction }: Props) {
               GitHub
             </Link>
           </li>
-          <li>
+          <li className="m-[0.29rem] mt-0 first:ml-0 last:mr-0">
             <Link
               href="https://www.linkedin.com/in/philipp-spiess/"
               target="_blank"

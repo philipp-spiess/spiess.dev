@@ -1,13 +1,18 @@
-import "../styles/editor.css"
-import "../styles/globals.css"
+import "./root.css"
 
 import { Analytics } from "@vercel/analytics/react"
 import type { AppProps } from "next/app"
 import Head from "next/head"
-import { bold, italic, normal } from "../lib/fonts"
+import { Merriweather } from "@next/font/google"
+
+const marriweather = Merriweather({
+  weight: ["400", "700", "900"],
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--marriweather",
+})
 
 import { LogkitAnalytics } from "@logkit/client-react"
-import styles from "./_app.module.css"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -21,9 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      <div
-        className={`${styles.layout} ${bold.variable} ${italic.variable} ${normal.variable} ${normal.className}`}
-      >
+      <div className={`text-base mb-12 ${marriweather.variable} font-serif`}>
         <Component {...pageProps} />
       </div>
       <Analytics />

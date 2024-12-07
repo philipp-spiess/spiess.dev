@@ -1,11 +1,9 @@
-import styles from "./404.module.css";
-
 export default function FourOhFour() {
   return (
-    <div className={styles.container}>
+    <div className="flex items-center justify-center pt-20">
       <div>
         <h1>Not Found</h1>
-        <p>You just hit a route that does not exist. 🥺</p>
+        <p>You just hit a route that does not exist. 😔</p>
       </div>
     </div>
   );

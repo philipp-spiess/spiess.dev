@@ -1,13 +1,8 @@
-import { BlogPost, getPost, Post } from "../../lib/parser/post"
+import { type BlogPost, getPost } from "../../lib/parser/post"
 import { getPosts } from "../../lib/parser/posts"
 import ArticleHeader from "../../lib/ArticleHeader"
-import Avatar from "../../lib/Avatar"
 import Bio from "../../lib/Bio"
 import Head from "next/head"
-import Link from "next/link"
-import styles from "./[slug].module.css"
-
-import { bold } from "../../lib/fonts"
 
 export async function getStaticPaths() {
   const paths = (await getPosts())
@@ -38,7 +33,7 @@ export default function Slug(props: Props) {
         <meta property="og:description" content={post.excerpt} />
         <meta
           property="og:image"
-          content={`https://philippspiess.com/api/og?title=${encodeURIComponent(
+          content={`https://spiess.dev/api/og?title=${encodeURIComponent(
             post.title,
           )}&date=${encodeURIComponent(
             post.formattedDate,
@@ -46,10 +41,10 @@ export default function Slug(props: Props) {
         />
       </Head>
 
-      <ArticleHeader type="blog" containerClass={styles.container} />
+      <ArticleHeader type="blog" containerClass="max-w-[610px] px-[0.875rem] mx-auto" />
 
-      <div className={`${styles.container} ${styles.post} post`}>
-        <h1 className={bold.className} style={{ marginBottom: 0 }}>
+      <div className="max-w-[610px] px-[0.875rem] mx-auto post">
+        <h1 className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-600 dark:to-orange-300 bg-clip-text text-transparent" style={{ marginBottom: 0 }}>
           {post.title}
         </h1>
         <p>
@@ -58,7 +53,7 @@ export default function Slug(props: Props) {
 
         <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       </div>
-      <div className={styles.container}>
+      <div className="max-w-[610px] px-[0.875rem] mx-auto">
         <h4 style={{ marginTop: "3.5rem" }}>About the author</h4>
         <Bio direction="row" />
       </div>

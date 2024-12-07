@@ -1,0 +1,36 @@
+
+@import "tailwindcss";
+
+@import "./typography.css" layer(components);
+@import "./editor.css" layer(components);
+
+@theme {
+  --text-*: initial;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75;
+  --text-lg: 1.2rem;
+  --text-lg--line-height: 1.75;
+  --text-xl: 2rem;
+  --text-xl--line-height: 1.75;
+}
+
+@theme inline {
+  --font-serif: var(--marriweather);
+}
+
+:root {
+  --bg-color: #fffcf5;
+  --fg-color: 0, 0, 0;
+  --muted-color: rgba(var(--fg-color), 0.5);
+  --accent-color: #8e6e15;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #161514;
+    --fg-color: 255, 255, 255;
+    --accent-color: #ecc63c;
+    --muted-color: rgba(var(--fg-color), 0.6);
+    color-scheme: dark;
+  }
+}

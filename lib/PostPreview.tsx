@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "./PostPreview.module.css"
 
-import { Post } from "./parser/post"
+import type { Post } from "./parser/post"
 
 interface Props {
   post: Post
