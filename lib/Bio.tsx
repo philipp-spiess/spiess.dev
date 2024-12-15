@@ -1,16 +1,18 @@
-import Link from "next/link";
-import Avatar from "./Avatar";
+import Link from "next/link"
+import Avatar from "./Avatar"
 
 export const description =
   "Philipp Spiess is an engineer at Tailwind Labs with a focus on Web technologies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
-  "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
+  "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
 
 interface Props {
-  direction?: "row" | "column";
+  direction?: "row" | "column"
 }
 export default function Bio({ direction }: Props) {
   return (
-    <div className={`text-left flex ${direction === "row" ? "flex-row" : "flex-col"}`}>
+    <div
+      className={`text-left flex ${direction === "row" ? "flex-row" : "flex-col"}`}
+    >
       <div className="min-w-[116px] flex pt-2">
         <Link href="/" className="shadow-none">
           <Avatar width={100} />
@@ -18,7 +20,8 @@ export default function Bio({ direction }: Props) {
       </div>
       <div>
         <div className="text-lg font-black">
-          Philipp Spiess <small className="text-(--muted-color)">[ˈʃpiːs]</small>
+          Philipp Spiess{" "}
+          <small className="text-(--muted-color)">[ˈʃpiːs]</small>
         </div>
 
         <p className="my-5">
@@ -104,5 +107,5 @@ export default function Bio({ direction }: Props) {
         </ul>
       </div>
     </div>
-  );
+  )
 }

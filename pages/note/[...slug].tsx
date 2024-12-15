@@ -1,8 +1,6 @@
 import Head from "next/head"
-import styles from "./[...slug].module.css"
 
-import { bold } from "../../lib/fonts"
-import { getNotes, Note } from "../../lib/parser/notes"
+import { getNotes, type Note } from "../../lib/parser/notes"
 import ArticleHeader from "../../lib/ArticleHeader"
 import Notes from "../../lib/Notes"
 import React from "react"
@@ -52,17 +50,27 @@ export default function Slug({ note, notes }: Props) {
         />
       </Head>
 
-      <ArticleHeader type="note" containerClass={styles.container} />
+      <ArticleHeader
+        type="note"
+        containerClass="max-w-[610px] px-[0.875rem] mx-auto"
+      />
 
-      <div className={`${styles.container} ${styles.post} post`}>
-        <h1 className="text-bold" style={{ marginBottom: 0 }}>
+      <div className="max-w-[610px] px-[0.875rem] mx-auto post">
+        <h1
+          className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-600 dark:to-orange-300 bg-clip-text text-transparent"
+          style={{ marginBottom: 0 }}
+        >
           {note.title}
         </h1>
         <p>
           {note.formattedDate} •{" "}
           {note.category.map((category, index) => (
             <React.Fragment key={category}>
-              {index !== 0 ? <span className={styles.separator}>/</span> : null}
+              {index !== 0 ? (
+                <span className="mx-1 text-[color-mix(in_oklch,rgb(var(--fg-color))_20%,transparent)]">
+                  /
+                </span>
+              ) : null}
               {category}
             </React.Fragment>
           ))}
@@ -77,7 +85,7 @@ export default function Slug({ note, notes }: Props) {
         </section>
       </div>
 
-      <div className={styles.container}>
+      <div className="max-w-[610px] px-[0.875rem] mx-auto">
         <h4 style={{ marginTop: "3.5rem" }}>About the author</h4>
         <Bio direction="row" />
       </div>

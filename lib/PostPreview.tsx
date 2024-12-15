@@ -1,22 +1,22 @@
 import Link from "next/link"
-import styles from "./PostPreview.module.css"
 
 import type { Post } from "./parser/post"
 
 interface Props {
   post: Post
 }
+
 export default function PostPreview({ post }: Props) {
   switch (post.type) {
     case "blog": {
       return (
         <div key={post.id}>
-          <h3 className={styles.postTitle}>
+          <h3 className="mt-7.5 mb-1 sm:mt-10">
             <Link style={{ boxShadow: "none" }} href={`/blog/${post.id}`}>
               {post.title}
             </Link>
           </h3>
-          <small className={styles.postSubtitle}>
+          <small className="block mb-2">
             {post.formattedDate} • {post.readingTime}
           </small>
           <p>{post.excerpt}</p>
@@ -27,12 +27,12 @@ export default function PostPreview({ post }: Props) {
       const domain = post.external.split("/")[2]
       return (
         <div key={post.id}>
-          <h3 className={styles.postTitle}>
+          <h3 className="mt-7.5 mb-1 sm:mt-10">
             <Link href={post.external} style={{ boxShadow: "none" }}>
               {post.title}
             </Link>
           </h3>
-          <small className={styles.postSubtitle}>
+          <small className="block mb-2">
             {post.formattedDate} • {domain}
           </small>
           <p>{post.excerpt}</p>
@@ -40,5 +40,4 @@ export default function PostPreview({ post }: Props) {
       )
     }
   }
-  return null
 }

@@ -103,17 +103,6 @@ interface RawNote {
   content: string
 }
 async function fetchNotes(): Promise<RawNote[]> {
-
-  return [
-    {
-      path: '/Unlisted/2023-05-01-unlisted-note.md',
-      content: "",
-    },
-      {
-      path: '/Unlisted/2023-05-01-unlisted-note.md',
-      content: "",
-    }
-  ]
   const res = await fetch(GRAPHQL_URL, {
     method: "POST",
     headers,
