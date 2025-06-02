@@ -44,7 +44,7 @@ export default function Slug(props: Props) {
       <ArticleHeader type="blog" containerClass="max-w-[610px] px-[0.875rem] mx-auto" />
 
       <div className="max-w-[610px] px-[0.875rem] mx-auto post">
-        <h1 className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-600 dark:to-orange-300 bg-clip-text text-transparent" style={{ marginBottom: 0 }}>
+        <h1 className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-300 text-pretty bg-clip-text text-transparent" style={{ marginBottom: 0 }}>
           {post.title}
         </h1>
         <p>

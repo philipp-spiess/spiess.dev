@@ -57,7 +57,7 @@ export default function Slug({ note, notes }: Props) {
 
       <div className="max-w-[610px] px-[0.875rem] mx-auto post">
         <h1
-          className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-600 dark:to-orange-300 bg-clip-text text-transparent"
+          className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) text-pretty to-orange-300 bg-clip-text text-transparent"
           style={{ marginBottom: 0 }}
         >
           {note.title}
