@@ -17,14 +17,15 @@ const generateRssItem = (postOrNote: Post | Note): string => {
       <guid>${url}</guid>
       <title>${postOrNote.title}</title>
       <link>${url}</link>
-      <description>${postOrNote.excerpt}</description>
+      <description><![CDATA[${postOrNote.excerpt}]]></description>
+      <content:encoded><![CDATA[${postOrNote.contentHtml}]]></content:encoded>
       <pubDate>${new Date(postOrNote.date).toUTCString()}</pubDate>
     </item>
   `
 }
 
 const generateRss = (postOrNote: (Post | Note)[]): string => `
-  <rss version="2.0">
+  <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
       <title>spiess.dev</title>
       <link>https://spiess.dev/</link>
