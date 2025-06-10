@@ -1,0 +1,91 @@
+{
+  "main": {
+    "id": "2a3c4cf81638b75b",
+    "type": "split",
+    "children": [
+      {
+        "id": "f247cb96df85c721",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2cec3d5e7828cfdb",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f0241ae8c9b6e8c3",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "de39538e37ef4993",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "dadc914e6e7d14a0",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "fc0e1f901ea2f35e",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "bcf08c2c4213bd6f",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "2cec3d5e7828cfdb",
+  "lastOpenFiles": [
+    "README.md",
+    "Carreer/Salary Negotiation.md",
+    "Unlisted/WoW/Weakauras(1).md",
+    "Unlisted/WoW/TBC Boost.md",
+    "Unlisted/WoW/Weakauras.md",
+    "Private/Top Secret Note.md",
+    "Unlisted/WoW/9.2 SotFO - Sepulcher of the First Ones.md",
+    "Unlisted/WoW/9.2 Frost Mage.md",
+    "Unlisted/WoW/9.1 SoD - Sanctum of Domination.md",
+    "Unlisted/WoW/9.2 Fire Mage.md"
+  ]
+}

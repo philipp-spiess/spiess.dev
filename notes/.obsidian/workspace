@@ -1,0 +1,98 @@
+{
+  "main": {
+    "id": "2a3c4cf81638b75b",
+    "type": "split",
+    "children": [
+      {
+        "id": "2cec3d5e7828cfdb",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "20d247114fdaa9fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ecc1e19579d680c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a590a79f8fc9517d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8a8dbbf37144ef02",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 218
+  },
+  "right": {
+    "id": "888b807f38b74356",
+    "type": "split",
+    "children": [
+      {
+        "id": "b2534bcfea37f7a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b7f1d6a12a4cdfaf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "2cec3d5e7828cfdb",
+  "lastOpenFiles": [
+    "README.md",
+    "Carreer/Salary Negotiation.md",
+    "Unlisted/WoW/Weakauras(1).md",
+    "Unlisted/WoW/TBC Boost.md",
+    "Unlisted/WoW/Weakauras.md",
+    "Private/Top Secret Note.md",
+    "Unlisted/WoW/9.2 SotFO - Sepulcher of the First Ones.md",
+    "Unlisted/WoW/9.2 Frost Mage.md",
+    "Unlisted/WoW/9.1 SoD - Sanctum of Domination.md",
+    "Unlisted/WoW/9.2 Fire Mage.md"
+  ]
+}

@@ -1,0 +1,55 @@
+---
+date: 2022-02-25
+---
+
+- [ ] Input methods
+  - [ ] Set up the [US-German Keyboard layout](https://github.com/patrick-zippenfenig/us-with-german-umlauts#:~:text=Mac%20U.S.%20keyboard%20layout%20with%20German%20Umlauts,-This%20layout%20is&text=The%20layout%20is%20a%20modified,option%20%2B%20u%20%3D%3E%20%C3%BC)
+  - [ ] Disable natural scrolling
+  - [ ] Maximize key repeat rate and delay until repeat
+  - [ ] Map `tab` key to `escape` in Keyboards settings
+- [ ] [Homebrew](https://brew.sh/)
+- [ ] `brew install --cask 1password` (set up 1Password immediately)
+- [ ] Connect iCloud and enable Find My Mac
+- [ ] Customize Dock
+- [ ] Connect Google account for the Calendar integration
+- [ ] Oh My Zsh
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+  - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+- [ ] [Mise](https://mise.jdx.dev/getting-started.html)
+- [ ] `brew install git`
+- [ ] `brew install --cask warp`
+- [ ] `brew install --cask raycast`
+- [ ] `brew install --cask discord`
+- [ ] `brew install --cask google-chrome`
+- [ ] `brew install --cask firefox`
+- [ ] `brew install --cask hiddenbar`
+- [ ] `brew install --cask spotify`
+- [ ] `brew install --cask visual-studio-code`
+- [ ] `brew install --cask obsidian`
+- [ ] `brew install --cask rectangle`
+- [ ] `brew install --cask monitorcontrol`
+- [ ] `brew install --cask telegram`
+- [ ] `brew install --cask whatsapp`
+- [ ] `brew install --cask flux`
+- [ ] `brew install --cask the-unarchiver`
+- [ ] `brew install --cask stats`
+- [ ] Fonts
+  - [ ] `brew tap homebrew/cask-fonts`
+  - [ ] `brew install --cask font-fira-code`
+- [ ] Sync [dotfiles](https://github.com/philipp-spiess/dotfiles)
+- [ ] Set up SSH keys for GitHub and remote servers
+- [ ] From the App Store
+  - [ ] Microsoft To Do
+  - [ ] Things
+  - [ ] Prologue
+- [ ] For Work Macs
+  - [ ] Slack
+  - [ ] Loom
+  - [ ] Carbon Black
+  - [ ] Dev Environment
+  - [ ] Zoom
+  - [ ] Set up a second Chrome profile and change the UI theme of one of the profiles (pref. work to blue)
+- [ ] For Personal Macs
+  - [ ] VPN Client and helper
+  - [ ] Sketch
+- [ ] Configure backups

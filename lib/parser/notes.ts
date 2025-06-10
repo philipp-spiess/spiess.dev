@@ -1,5 +1,7 @@
 import format from "date-fns/format"
 import { parseMarkdown } from "./markdown"
+import fs from "fs/promises"
+import path from "path"
 
 export interface Note {
   title: string
@@ -11,61 +13,8 @@ export interface Note {
   excerpt: string
 }
 
-const TOKEN = process.env.GITHUB_TOKEN
-const GRAPHQL_URL = "https://api.github.com/graphql"
 const HIDDEN_FILES = new Set(["README.md"])
 const HIDDEN_DIRS = new Set(["Unlisted"])
-
-// No-op, used only for syntax highlighting in the IDE
-function gql(strings: TemplateStringsArray) {
-  return strings.raw.join("")
-}
-
-const headers = {
-  Authorization: `Bearer ${TOKEN}`,
-}
-
-const CONTENTS_QUERY = gql`
-  {
-    repository(name: "philipp-spiess", owner: "philipp-spiess") {
-      ref(qualifiedName: "main") {
-        target {
-          ... on Commit {
-            tree {
-              entries {
-                ...MyTreeEntry
-                object {
-                  ... on Tree {
-                    entries {
-                      ...MyTreeEntry
-                      object {
-                        ... on Tree {
-                          entries {
-                            ...MyTreeEntry
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  fragment MyTreeEntry on TreeEntry {
-    path
-    type
-    blob: object {
-      ... on Blob {
-        text
-      }
-    }
-  }
-`
 
 export async function getNotes(): Promise<Note[]> {
   const notes: Note[] = []
@@ -73,7 +22,9 @@ export async function getNotes(): Promise<Note[]> {
   for (const rawNote of rawNotes) {
     const { data, contentHtml, excerpt } = await parseMarkdown(rawNote.content)
 
-    const date = data.date instanceof Date ? data.date.toISOString() : null
+    const date = data.date 
+      ? (data.date instanceof Date ? data.date.toISOString() : new Date(data.date).toISOString())
+      : new Date().toISOString()
 
     notes.push({
       title: rawNote.path.split("/").pop().replace(".md", ""),
@@ -103,51 +54,44 @@ interface RawNote {
   content: string
 }
 async function fetchNotes(): Promise<RawNote[]> {
-  const res = await fetch(GRAPHQL_URL, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ query: CONTENTS_QUERY }),
-  }).then((r) => r.json())
-
-  return recursivelyResolveEntries(res.data.repository.ref.target.tree)
+  const notesDir = path.join(process.cwd(), 'notes')
+  return recursivelyReadNotes(notesDir, '')
 }
 
-interface GitHubTree {
-  entries: Array<
-    | {
-        path: string
-        type: "blob"
-        blob: {
-          text: string
+async function recursivelyReadNotes(dir: string, relativePath: string): Promise<RawNote[]> {
+  const result: RawNote[] = []
+  
+  try {
+    const entries = await fs.readdir(dir)
+    
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry)
+      const stat = await fs.stat(fullPath)
+      const entryRelativePath = relativePath ? path.join(relativePath, entry) : entry
+      
+      if (stat.isDirectory()) {
+        if (HIDDEN_DIRS.has(entry)) {
+          continue
         }
+        
+        const subNotes = await recursivelyReadNotes(fullPath, entryRelativePath)
+        result.push(...subNotes)
+      } else if (stat.isFile() && entry.endsWith('.md')) {
+        if (HIDDEN_FILES.has(entry)) {
+          continue
+        }
+        
+        const content = await fs.readFile(fullPath, 'utf-8')
+        result.push({
+          path: entryRelativePath,
+          content,
+        })
       }
-    | {
-        path: string
-        type: "tree"
-        object: GitHubTree
-      }
-  >
-}
-function recursivelyResolveEntries(tree: GitHubTree): RawNote[] {
-  let result: RawNote[] = []
-  for (const entry of tree.entries) {
-    if (entry.type === "blob") {
-      if (!entry.path.endsWith(".md") || HIDDEN_FILES.has(entry.path)) {
-        continue
-      }
-
-      result.push({
-        path: entry.path,
-        content: entry.blob.text,
-      })
-    } else {
-      if (HIDDEN_DIRS.has(entry.path)) {
-        continue
-      }
-
-      result = result.concat(recursivelyResolveEntries(entry.object))
     }
+  } catch (error) {
+    console.error(`Error reading directory ${dir}:`, error)
   }
+  
   return result
 }
 

@@ -1,0 +1,13 @@
+---
+date: 2022-02-25
+---
+- When working on complex systems, there are often more than one test parameter that changes. For example when working on a component for your design system, you need to test across all these different parameters:
+	- Responsive Breakpoints
+	- Dark/Light Mode
+	- Accesibility options (screen reader, mouse-only, keyboard-only)
+	- Different browser versions
+- A good abstraction to help cope with this increasing complexity is by thinking of combinational matrixes. 
+	- In code, this can be multi dimensional arrays or nested loops. [Jest even has a feature for it](https://jestjs.io/docs/api#testeachtablename-fn-timeout).
+	- In PR descriptions, it's helpful to draw a table to make sure you test all possible combinations throghoutly. 
+- Increasing the dimensions can make a full test run very costly though, so you can’t just blindly add more.
+- A very common pattern where this is userful is for manual pull request descriptions where you want to provide proof that you have exhaustively tested a new feature. A two-dimensional table might be used to show screenshots of e.g. different browsers and different responsive breakpoints.
