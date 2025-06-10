@@ -14,7 +14,7 @@ export default function NewsletterForm({
   return (
     <div className={className}>
       <h3 className="font-black text-lg mb-2">{title}</h3>
-      <p className="mb-4 text-[var(--muted-color)]">{description}</p>
+      <p className="mb-4 text-(--muted-color)">{description}</p>
 
       <form
         action="https://buttondown.com/api/emails/embed-subscribe/spiess"
@@ -33,13 +33,13 @@ export default function NewsletterForm({
             defaultValue={""}
             placeholder="Enter your email"
             required
-            className="w-full px-4 py-2 text-base border border-[color-mix(in_oklch,rgb(var(--fg-color))_20%,transparent)] rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:border-transparent disabled:opacity-50"
+            className="w-full px-3 py-2 border border-[color-mix(in_oklch,rgb(var(--fg-color))_20%,transparent)] rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-(--accent-color) focus:border-transparent disabled:opacity-50"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full px-4 py-2 text-base font-semibold text-white bg-[var(--accent-color)] rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-2 focus:ring-offset-[var(--bg-color)] disabled:opacity-50 transition-opacity"
+          className="w-full px-3 py-2 font-semibold text-(--bg-color) bg-(--accent-color) rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-(--accent-color) focus:ring-offset-2 focus:ring-offset-(--bg-color) disabled:opacity-50 transition-opacity"
         >
           Subscribe
         </button>
