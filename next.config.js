@@ -10,6 +10,16 @@ const nextConfig = {
         destination: "/blog/scheduling-in-react",
         permanent: true,
       },
+      {
+        source: "/note/engineering/ml/embeddings",
+        destination: "/note/engineering/ai/embeddings",
+        permanent: true,
+      },
+      {
+        source: "/note/engineering/ml/jaccard-similarity",
+        destination: "/note/engineering/ai/jaccard-similarity",
+        permanent: true,
+      },
     ];
   },
 

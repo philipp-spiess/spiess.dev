@@ -1,9 +1,9 @@
-import type { Note } from "./parser/notes"
-import Link from "next/link"
-import React from "react"
+import type { Note } from "./parser/notes";
+import Link from "next/link";
+import React from "react";
 
 interface Props {
-  notes: Note[]
+  notes: Note[];
 }
 export default function Notes({ notes }: Props) {
   return (
@@ -29,5 +29,5 @@ export default function Notes({ notes }: Props) {
         </div>
       ))}
     </>
-  )
+  );
 }
