@@ -1,35 +1,36 @@
-import Head from "next/head"
+import Head from "next/head";
 
-import { getNotes, type Note } from "../../lib/parser/notes"
-import ArticleHeader from "../../lib/ArticleHeader"
-import Notes from "../../lib/Notes"
-import React from "react"
-import Bio from "../../lib/Bio"
+import { getNotes, type Note } from "../../lib/parser/notes";
+import ArticleHeader from "../../lib/ArticleHeader";
+import Notes from "../../lib/Notes";
+import React from "react";
+import Bio from "../../lib/Bio";
+import NewsletterForm from "../../lib/NewsletterForm";
 
 export async function getStaticPaths() {
-  const paths = (await getNotes()).map((note) => `/note/${note.id}`)
+  const paths = (await getNotes()).map((note) => `/note/${note.id}`);
   return {
     paths,
     fallback: false,
-  }
+  };
 }
 
 export async function getStaticProps({
   params,
 }: {
-  params: { slug: string[] }
+  params: { slug: string[] };
 }) {
-  const notes = await getNotes()
-  const note = notes.find((note) => note.id === params.slug.join("/"))
+  const notes = await getNotes();
+  const note = notes.find((note) => note.id === params.slug.join("/"));
   return {
     props: { note: note, notes },
     revalidate: 12 * 60 * 60,
-  }
+  };
 }
 
 interface Props {
-  note: Note
-  notes: Note[]
+  note: Note;
+  notes: Note[];
 }
 export default function Slug({ note, notes }: Props) {
   return (
@@ -43,9 +44,9 @@ export default function Slug({ note, notes }: Props) {
         <meta
           property="og:image"
           content={`https://spiess.dev/api/og?title=${encodeURIComponent(
-            note.title,
+            note.title
           )}&date=${encodeURIComponent(
-            note.formattedDate,
+            note.formattedDate
           )}&sub=${encodeURIComponent(note.category.join("/"))}`}
         />
       </Head>
@@ -62,7 +63,7 @@ export default function Slug({ note, notes }: Props) {
         >
           {note.title}
         </h1>
-        <p>
+        <p className="text-(--muted-color)">
           {note.formattedDate} •{" "}
           {note.category.map((category, index) => (
             <React.Fragment key={category}>
@@ -80,15 +81,17 @@ export default function Slug({ note, notes }: Props) {
 
         <section>
           <hr />
-          <h2>Other Notes</h2>
+          <NewsletterForm className="my-8" title="Enjoyed this note?" />
+          <hr />
+          <h3>Other Notes</h3>
           <Notes notes={notes} />
         </section>
       </div>
 
       <div className="max-w-[610px] px-[0.875rem] mx-auto">
-        <h4 style={{ marginTop: "3.5rem" }}>About the author</h4>
+        <h3 className="mt-8">About the author</h3>
         <Bio direction="row" />
       </div>
     </>
-  )
+  );
 }
