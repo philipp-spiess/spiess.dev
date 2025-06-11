@@ -54,7 +54,7 @@ export default function Home({ posts, notes }: Props) {
               Subscribe to my newsletter
             </h3>
             <p className="mb-4 text-(--muted-color)">
-              Get surprise updates on what's on my mind. You'd be among the
+              Get surprise updates on what&apos;s on my mind. You&apos;d be among the
               first to join. No spam, pinky promise.
             </p>
             <NewsletterForm />

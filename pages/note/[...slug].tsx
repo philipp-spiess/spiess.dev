@@ -85,7 +85,7 @@ export default function Slug({ note, notes }: Props) {
             <p className="mb-3">
               <em>Pssst!</em> If you liked what you just read, I just started a
               newsletter where I share things whenever inspiration strikes.
-              You'd be among the first to join our little secret club. No spam,
+              You&apos;d be among the first to join our little secret club. No spam,
               pinky promise.
             </p>
             <NewsletterForm />
