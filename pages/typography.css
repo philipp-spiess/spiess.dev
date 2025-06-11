@@ -43,6 +43,14 @@ ol {
   margin-bottom: 1.75rem;
 }
 
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 ul li,
 ol li {
   padding-left: 0;
@@ -203,4 +211,18 @@ code {
 
 .post .footnotes>ol>li>p {
   display: inline;
+}
+
+kbd {
+  padding: 0.2em 0.4em;
+  margin: 0 0.1em;
+  font-size: 0.85em;
+  font-family: monospace;
+  background-color: rgba(var(--fg-color), 0.1);
+  border: 1px solid rgba(var(--fg-color), 0.2);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(var(--fg-color), 0.2);
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
 }

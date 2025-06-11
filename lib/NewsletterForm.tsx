@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface NewsletterFormProps {
   className?: string;
