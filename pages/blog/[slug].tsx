@@ -62,7 +62,15 @@ export default function Slug(props: Props) {
 
         <section>
           <hr />
-          <NewsletterForm className="my-8" title="Enjoyed this note?" />
+          <div className="my-8">
+            <p className="mb-3">
+              <em>Pssst!</em> If you liked what you just read, I just started a
+              newsletter where I share things whenever inspiration strikes.
+              You'd be among the first to join our little secret club. No spam,
+              pinky promise.
+            </p>
+            <NewsletterForm />
+          </div>
           <hr />
         </section>
       </div>

@@ -49,7 +49,16 @@ export default function Home({ posts, notes }: Props) {
         <aside className="flex flex-col items-center pt-8 px-2 md:px-7 md:pt-14 md:w-[350px]">
           <Bio />
           <hr className="w-full mt-8" />
-          <NewsletterForm className="w-full max-w-[300px]" />
+          <section className="w-full max-w-[300px]">
+            <h3 className="font-black text-lg mb-2">
+              Subscribe to my newsletter
+            </h3>
+            <p className="mb-4 text-(--muted-color)">
+              Get surprise updates on what's on my mind. You'd be among the
+              first to join. No spam, pinky promise.
+            </p>
+            <NewsletterForm />
+          </section>
         </aside>
 
         <main className="px-2 md:px-8">
