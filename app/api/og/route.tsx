@@ -1,21 +1,19 @@
 import { ImageResponse } from "@vercel/og"
-import type { NextRequest } from "next/server"
+import { NextRequest } from "next/server"
 
-export const config = {
-  runtime: "experimental-edge",
-}
+export const runtime = "edge"
 
 const bold = fetch(
-  new URL("../../assets/Merriweather/Merriweather-Black.ttf", import.meta.url),
+  new URL("../../../assets/Merriweather/Merriweather-Black.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer())
 const normal = fetch(
   new URL(
-    "../../assets/Merriweather/Merriweather-Regular.ttf",
+    "../../../assets/Merriweather/Merriweather-Regular.ttf",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer())
 
-export default async function handler(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const [boldData, normalData] = await Promise.all([bold, normal])
 
   try {
@@ -48,8 +46,6 @@ export default async function handler(req: NextRequest) {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            justifyItems: "center",
           }}
         >
           {/* biome-ignore lint/a11y/useAltText: <explanation> */}

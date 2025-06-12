@@ -1,10 +1,10 @@
 import { remark } from "remark"
+import rehypeShiki from "@shikijs/rehype"
+import rehypeStringify from "rehype-stringify"
+import remarkRehype from "remark-rehype"
 
 import matter from "gray-matter"
 import readingTime from "reading-time"
-import remarkFootnotes from "remark-footnotes"
-import html from "remark-html"
-import prism from "remark-prism"
 import { excerpt } from "./excerpt"
 
 export async function parseMarkdown(markdown: string): Promise<{
@@ -27,11 +27,61 @@ export async function parseMarkdown(markdown: string): Promise<{
     .replaceAll(/(\-\ )(\[.?\])/g, "$1<input type='checkbox' disabled />")
 
   const processedContent = await remark()
-    .use(html, { sanitize: false })
-    .use(prism)
-    .use(remarkFootnotes)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeShiki, {
+      theme: "catppuccin-frappe",
+      langs: [
+        "javascript",
+        "typescript", 
+        "jsx",
+        "tsx",
+        "bash",
+        "shell",
+        "json",
+        "css",
+        "html",
+        "markdown",
+        "python",
+        "rust",
+        "go",
+        "sql",
+        "plaintext" as any
+      ],
+      transformers: [
+        {
+          name: "remove-italics",
+          span(node) {
+            // Remove font-style: italic from all spans
+            if (node.properties.style) {
+              node.properties.style = (node.properties.style as string).replace(/font-style:\s*italic;?/g, '')
+            }
+            return node
+          }
+        }
+      ]
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(content)
-  const contentHtml = processedContent.toString()
+  let contentHtml = processedContent.toString()
+  
+  // Convert plaintext code blocks by looking for the original markdown
+  if (content.includes('```plaintext')) {
+    contentHtml = contentHtml.replace(
+      /<pre class="shiki catppuccin-frappe"[^>]*>([\s\S]*?)<\/pre>/g,
+      (match, innerContent) => {
+        // Check if this block only has "line" spans (no syntax highlighting)
+        const hasOnlyLineSpans = innerContent.includes('<span class="line">') && 
+                                !innerContent.match(/<span[^>]*style[^>]*color:/);
+        if (hasOnlyLineSpans) {
+          return match.replace(
+            /<pre class="shiki catppuccin-frappe"[^>]*>/,
+            '<pre class="shiki catppuccin-frappe claude-plaintext" style="background-color:#303446;color:#c6d0f5 !important" tabindex="0">'
+          )
+        }
+        return match
+      }
+    )
+  }
 
   return {
     data,

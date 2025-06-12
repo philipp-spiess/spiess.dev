@@ -21,7 +21,10 @@ export default function Bio({ direction }: Props) {
       <div>
         <div className="text-lg font-black">
           Philipp Spiess{" "}
-          <small className="text-(--muted-color)">[ˈʃpiːs]</small>
+          <small className="text-(--muted-color)" style={{ 
+            fontFamily: "var(--marriweather), 'Doulos SIL', 'Charis SIL', 'Times New Roman', 'DejaVu Serif', serif",
+            fontFeatureSettings: '"kern", "liga", "clig", "calt"'
+          }}>[ˈʃpiːs]</small>
         </div>
 
         <p className="my-5">

@@ -27,7 +27,7 @@ Did you know that you can use Claude Code's tools as an MCP server (`claude mcp 
 
 Knowing this is available is super handy when you have a more complex problem that you need a supervisor for. Here's a recent example of how I used this feature to do a deep-dive of the same problem with four different personas:
 
-```bash
+```plaintext
 > Read files in the current directory to deduct a pattern for building Tailwind Plus components. You should spawn 4 sub-tasks with slightly different priorities (e.g. design color export, accessibility export, mobile/responsive expert, overall style expert) and compare their results.
 
 ✻ Thinking…
@@ -110,7 +110,7 @@ What I do now is ask Claude to read the manual first. This can be done in differ
 
 An example for a deep research task can look like this:
 
-```bash
+```plaintext
 > create a deep research task to figure out how to migrate a website from tailwind 3 to 4 and then present me with a
   short summary of the results
 

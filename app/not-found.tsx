@@ -1,4 +1,4 @@
-export default function FourOhFour() {
+export default function NotFound() {
   return (
     <div className="flex items-center justify-center pt-20">
       <div>
@@ -6,5 +6,5 @@ export default function FourOhFour() {
         <p>You just hit a route that does not exist. 😔</p>
       </div>
     </div>
-  );
+  )
 }

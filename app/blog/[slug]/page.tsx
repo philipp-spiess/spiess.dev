@@ -1,47 +1,55 @@
-import { type BlogPost, getPost } from "../../lib/parser/post";
-import { getPosts } from "../../lib/parser/posts";
-import ArticleHeader from "../../lib/ArticleHeader";
-import Bio from "../../lib/Bio";
-import Head from "next/head";
-import NewsletterForm from "../../lib/NewsletterForm";
+import { getPost } from "../../../lib/parser/post"
+import { getPosts } from "../../../lib/parser/posts"
+import ArticleHeader from "../../../lib/ArticleHeader"
+import Bio from "../../../lib/Bio"
+import NewsletterForm from "../../../lib/NewsletterForm"
+import type { Metadata } from "next"
 
-export async function getStaticPaths() {
-  const paths = (await getPosts())
+export async function generateStaticParams() {
+  const posts = await getPosts()
+  return posts
     .filter((post) => post.type === "blog")
-    .map((post) => `/blog/${post.id}`);
-  return {
-    paths,
-    fallback: false,
-  };
+    .map((post) => ({
+      slug: post.id,
+    }))
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getPost(slug)
   return {
-    props: { post: await getPost(params.slug) },
-  };
-}
-
-interface Props {
-  post: BlogPost;
-}
-export default function Slug(props: Props) {
-  const { post } = props;
-  return (
-    <>
-      <Head>
-        <title>{post.title} | Philipp Spiess</title>
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta
-          property="og:image"
-          content={`https://spiess.dev/api/og?title=${encodeURIComponent(
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [
+        {
+          url: `https://spiess.dev/api/og?title=${encodeURIComponent(
             post.title
           )}&date=${encodeURIComponent(
             post.formattedDate
-          )}&sub=${encodeURIComponent(post.readingTime)}`}
-        />
-      </Head>
+          )}&sub=${encodeURIComponent(post.readingTime)}`,
+        },
+      ],
+    },
+  }
+}
 
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const post = await getPost(slug)
+
+  return (
+    <>
       <ArticleHeader
         type="blog"
         containerClass="max-w-[610px] px-[0.875rem] mx-auto"
@@ -80,5 +88,5 @@ export default function Slug(props: Props) {
         <Bio direction="row" />
       </div>
     </>
-  );
+  )
 }

@@ -7,23 +7,23 @@
 }
 
 /**
-  * Based on copypasta from Remy Bach, Sarah Drasner, Dan Abramov
-  * Theme is Lucy by Juliette Prétot
-  * https://github.com/juliettepretot/lucy-vscode-theme
+  * Shiki code block styling to match original design
   */
 code,
-pre[class*="language-"] {
+pre.shiki {
   color: white;
   background: none;
-  font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
-  font-feature-settings: normal;
+  font-family: var(--jetbrains-mono), "JetBrains Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
+  font-feature-settings: "ss19", "cv02", "cv04", "cv07", "cv11", "cv16", "cv17", "zero";
+  font-weight: 400;
+  font-size: 15px;
   text-align: left;
   line-height: 1.5;
   margin-bottom: 0;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -31,15 +31,51 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
+pre.shiki,
+pre.shiki.claude-plaintext {
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  overflow: auto;
+  padding: 1.3125rem;
+  margin-bottom: 1.75rem;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+  
+  margin-left: calc(100% / 2 - 100vw / 2) !important;
+  margin-right: calc(100% / 2 - 100vw / 2) !important;
+  width: 100vw !important;
+}
+
+pre.shiki.claude-plaintext,
+pre.shiki.claude-plaintext code {
+  color: #c6d0f5 !important;
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 700px) {
+  pre.shiki,
+  pre.shiki.claude-plaintext {
+    margin-left: -50px !important;
+    margin-right: -50px !important;
+    max-width: calc(700px - 1.75rem / 2) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  pre.shiki,
+  pre.shiki.claude-plaintext {
+    border-radius: 0;
+  }
+}
+
+/* Legacy styles for old remark-prism */
 pre[class*="language-"] {
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-}
-
-/* Code blocks */
-pre[class*="language-"] {
   overflow: auto;
   padding: 1.3125rem;
 }

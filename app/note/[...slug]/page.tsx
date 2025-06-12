@@ -1,56 +1,66 @@
-import Head from "next/head";
+import { getNotes } from "../../../lib/parser/notes"
+import ArticleHeader from "../../../lib/ArticleHeader"
+import Bio from "../../../lib/Bio"
+import NewsletterForm from "../../../lib/NewsletterForm"
+import React from "react"
+import type { Metadata } from "next"
 
-import { getNotes, type Note } from "../../lib/parser/notes";
-import ArticleHeader from "../../lib/ArticleHeader";
-import Notes from "../../lib/Notes";
-import React from "react";
-import Bio from "../../lib/Bio";
-import NewsletterForm from "../../lib/NewsletterForm";
-
-export async function getStaticPaths() {
-  const paths = (await getNotes()).map((note) => `/note/${note.id}`);
-  return {
-    paths,
-    fallback: false,
-  };
+export async function generateStaticParams() {
+  const notes = await getNotes()
+  return notes.map((note) => ({
+    slug: note.id.split("/"),
+  }))
 }
 
-export async function getStaticProps({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] };
-}) {
-  const notes = await getNotes();
-  const note = notes.find((note) => note.id === params.slug.join("/"));
-  return {
-    props: { note: note, notes },
-    revalidate: 12 * 60 * 60,
-  };
-}
+  params: Promise<{ slug: string[] }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const notes = await getNotes()
+  const note = notes.find((note) => note.id === slug.join("/"))
+  
+  if (!note) {
+    return {
+      title: "Note not found",
+    }
+  }
 
-interface Props {
-  note: Note;
-  notes: Note[];
-}
-export default function Slug({ note, notes }: Props) {
-  return (
-    <>
-      <Head>
-        <title>
-          {note.title} | {[...note.category].reverse().join(" | ")} | Philipp
-          Spiess
-        </title>
-        <meta property="og:title" content={note.title} />
-        <meta
-          property="og:image"
-          content={`https://spiess.dev/api/og?title=${encodeURIComponent(
+  return {
+    title: `${note.title} | ${[...note.category].reverse().join(" | ")}`,
+    openGraph: {
+      title: note.title,
+      images: [
+        {
+          url: `https://spiess.dev/api/og?title=${encodeURIComponent(
             note.title
           )}&date=${encodeURIComponent(
             note.formattedDate
-          )}&sub=${encodeURIComponent(note.category.join("/"))}`}
-        />
-      </Head>
+          )}&sub=${encodeURIComponent(note.category.join("/"))}`,
+        },
+      ],
+    },
+  }
+}
 
+export const revalidate = 43200 // 12 hours
+
+export default async function NotePage({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>
+}) {
+  const { slug } = await params
+  const notes = await getNotes()
+  const note = notes.find((note) => note.id === slug.join("/"))
+
+  if (!note) {
+    return <div>Note not found</div>
+  }
+
+  return (
+    <>
       <ArticleHeader
         type="note"
         containerClass="max-w-[610px] px-[0.875rem] mx-auto"
@@ -98,5 +108,5 @@ export default function Slug({ note, notes }: Props) {
         <Bio direction="row" />
       </div>
     </>
-  );
+  )
 }

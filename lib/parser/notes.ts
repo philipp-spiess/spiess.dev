@@ -1,4 +1,4 @@
-import format from "date-fns/format"
+import { format } from "date-fns"
 import { parseMarkdown } from "./markdown"
 import fs from "fs/promises"
 import path from "path"
@@ -30,7 +30,7 @@ export async function getNotes(): Promise<Note[]> {
       title: rawNote.path.split("/").pop().replace(".md", ""),
       id: getId(rawNote.path),
       date,
-      formattedDate: format(new Date(date), "LLLL d, Y"),
+      formattedDate: format(new Date(date), "LLLL d, y"),
       category: rawNote.path.split("/").slice(0, -1),
       excerpt,
       contentHtml,

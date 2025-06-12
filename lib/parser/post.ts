@@ -1,6 +1,6 @@
 import { postsDirectory } from "./posts"
 
-import format from "date-fns/format"
+import { format } from "date-fns"
 import fs from "node:fs/promises"
 import path from "node:path"
 import { parseMarkdown } from "./markdown"
@@ -42,7 +42,7 @@ export async function getPost(id: string): Promise<Post> {
     ...data,
     type: data.external ? "external" : "blog",
     excerpt,
-    formattedDate: format(new Date(data.date), "LLLL d, Y"),
+    formattedDate: format(new Date(data.date), "LLLL d, y"),
     readingTime,
     contentHtml,
   } as Post
