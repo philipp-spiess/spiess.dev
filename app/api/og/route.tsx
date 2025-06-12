@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
             alignItems: "center",
           }}
         >
-          {/* biome-ignore lint/a11y/useAltText: <explanation> */}
+          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
             height={100}
             src="https://www.gravatar.com/avatar/046db2877d2f9342de37d0d59c5df4a9?s=100"
