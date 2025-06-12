@@ -87,7 +87,7 @@ As an example, I have a `gcauto` executable in my path that does the following:
 
 ```bash
 #!/bin/bash
-git commit -m "$(claude -p "Look at the stashed git changes and create a summarizing git commit title. Only respond with the title and no affirmation.")"
+git commit -m "$(claude -p "Look at the staged git changes and create a summarizing git commit title. Only respond with the title and no affirmation.")"
 ```
 
 So whenever I commit stuff now, I just stage them and run `gcauto`.
