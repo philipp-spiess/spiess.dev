@@ -11,7 +11,7 @@ export default function NewsletterForm({}: NewsletterFormProps) {
         target="popupwindow"
         className="flex flex-col @sm:flex-row gap-3"
       >
-        <div className="flex-grow">
+        <div className="grow">
           <label htmlFor="email" className="sr-only">
             Email address
           </label>

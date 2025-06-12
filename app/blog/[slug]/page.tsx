@@ -52,10 +52,10 @@ export default async function BlogPost({
     <>
       <ArticleHeader
         type="blog"
-        containerClass="max-w-[610px] px-[0.875rem] mx-auto"
+        containerClass="max-w-[610px] px-3.5 mx-auto"
       />
 
-      <div className="max-w-[610px] px-[0.875rem] mx-auto post">
+      <div className="max-w-[610px] px-3.5 mx-auto post">
         <h1
           className="font-black text-xl text bg-linear-to-br/oklch from-(--accent-color) to-orange-300 text-pretty bg-clip-text text-transparent"
           style={{ marginBottom: 0 }}
@@ -83,7 +83,7 @@ export default async function BlogPost({
         </section>
       </div>
 
-      <div className="max-w-[610px] px-[0.875rem] mx-auto">
+      <div className="max-w-[610px] px-3.5 mx-auto">
         <h3 className="mt-8">About the author</h3>
         <Bio direction="row" />
       </div>
