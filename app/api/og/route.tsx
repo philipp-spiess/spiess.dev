@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
     }
 
     // ?date=<date>
-    const date = searchParams.get("date")? `${searchParams.get("date")?.slice(0, 100)} • ` ?? "" : ""
+    const date = searchParams.get("date") ? `${searchParams.get("date")?.slice(0, 100)} • ` : ""
 
     // ?sub=<sub>
     const sub = searchParams.get("sub")?.slice(0, 100) ?? ""

@@ -38,8 +38,8 @@ export default async function Home() {
     <div className="min-h-screen max-w-[1000px] mx-auto md:grid md:grid-cols-[350px_minmax(0,1fr)]">
       <aside className="flex flex-col items-center pt-8 px-2 md:px-7 md:pt-14 md:w-[350px]">
         <Bio />
-        <hr className="w-full mt-8" />
-        <section className="w-full max-w-[300px]">
+        <hr className="w-full mt-8 hidden md:block" />
+        <section className="w-full sm:max-w-[300px] px-2 md:px-0 hidden md:block">
           <h3 className="font-black text-lg mb-2">
             Subscribe to my newsletter
           </h3>
@@ -62,6 +62,20 @@ export default async function Home() {
           {posts.map((post) => (
             <PostPreview key={post.id} post={post} />
           ))}
+        </section>
+
+        <section className="mt-12 md:hidden">
+          <hr className="w-full mb-8" />
+          <div className="w-full">
+            <h3 className="font-black text-lg mb-2">
+              Subscribe to my newsletter
+            </h3>
+            <p className="mb-4 text-(--muted-color)">
+              Get surprise updates on what&apos;s on my mind. You&apos;d be among the
+              first to join. No spam, pinky promise.
+            </p>
+            <NewsletterForm />
+          </div>
         </section>
       </main>
     </div>
