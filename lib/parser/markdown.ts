@@ -2,6 +2,8 @@ import { remark } from "remark"
 import rehypeShiki from "@shikijs/rehype"
 import rehypeStringify from "rehype-stringify"
 import remarkRehype from "remark-rehype"
+import rehypeSlug from "rehype-slug"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
 import matter from "gray-matter"
 import readingTime from "reading-time"
@@ -28,6 +30,18 @@ export async function parseMarkdown(markdown: string): Promise<{
 
   const processedContent = await remark()
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'prepend',
+      properties: {
+        className: ['header-anchor'],
+        ariaLabel: 'Link to this heading'
+      },
+      content: {
+        type: 'text',
+        value: '#'
+      }
+    })
     .use(rehypeShiki, {
       theme: "catppuccin-frappe",
       langs: [

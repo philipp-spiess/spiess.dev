@@ -225,3 +225,39 @@ kbd {
   line-height: 1;
   white-space: nowrap;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  scroll-margin-top: 2rem;
+}
+
+.header-anchor {
+  position: absolute;
+  transform: translateX(-100%);
+  opacity: 0;
+  font-weight: normal;
+  box-shadow: none;
+  color: color-mix(in srgb, var(--muted-color) 20%, transparent);
+  font-family: var(--jetbrains-mono), "JetBrains Mono", Consolas, Menlo, Monaco,
+    source-code-pro, Courier New, monospace;
+  padding-right: 0.75rem;
+}
+
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor,
+h6:hover .header-anchor {
+  opacity: 1;
+}
+
+.header-anchor:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
