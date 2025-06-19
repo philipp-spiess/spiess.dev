@@ -27,6 +27,29 @@ export async function parseMarkdown(markdown: string): Promise<{
       "$1<input type='checkbox' checked disabled />",
     )
     .replaceAll(/(\-\ )(\[.?\])/g, "$1<input type='checkbox' disabled />")
+  
+  // Convert unspecified code blocks to plaintext
+  const lines = content.split('\n')
+  let inCodeBlock = false
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    if (line.match(/^```\s*$/)) {
+      if (!inCodeBlock) {
+        // This is an opening tag without language specification
+        lines[i] = '```plaintext'
+        inCodeBlock = true
+      } else {
+        // This is a closing tag, leave it as is
+        inCodeBlock = false
+      }
+    } else if (line.match(/^```\w+/)) {
+      // This is an opening tag with language specification
+      inCodeBlock = true
+    }
+  }
+  
+  content = lines.join('\n')
 
   const processedContent = await remark()
     .use(remarkRehype, { allowDangerousHtml: true })
