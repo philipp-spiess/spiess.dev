@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { Merriweather, JetBrains_Mono } from "next/font/google"
 import { LogkitAnalytics } from "@logkit/client-react"
 import type { Metadata } from "next"
+import { description } from "../lib/Bio"
 
 const marriweather = Merriweather({
   weight: ["400", "700", "900"],
@@ -20,19 +21,19 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://philippspiess.com"),
+  metadataBase: new URL("https://spiess.dev"),
   title: {
     default: "Philipp Spiess",
     template: "%s | Philipp Spiess",
   },
-  description: "Philipp is a Software Engineer from Berlin. This is his blog.",
+  description,
   keywords: ["blog", "JavaScript", "React", "TypeScript", "WebAssembly", "Elixir", "Ruby", "Node.js", "Go"],
   authors: [{ name: "Philipp Spiess" }],
   creator: "Philipp Spiess",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://philippspiess.com",
+    url: "https://spiess.dev",
     siteName: "Philipp Spiess",
   },
   twitter: {

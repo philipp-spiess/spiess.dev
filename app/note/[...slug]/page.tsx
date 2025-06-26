@@ -29,8 +29,10 @@ export async function generateMetadata({
 
   return {
     title: `${note.title} | ${[...note.category].reverse().join(" | ")}`,
+    description: note.excerpt || note.title,
     openGraph: {
       title: note.title,
+      description: note.excerpt || note.title,
       images: [
         {
           url: `https://spiess.dev/api/og?title=${encodeURIComponent(
