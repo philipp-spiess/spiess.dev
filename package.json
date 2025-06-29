@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@logkit/client-react": "0.0.0-89854cf",
+    "@logkit/client-react": "0.0.0-0f0272d",
     "@shikijs/rehype": "^3.6.0",
     "@vercel/analytics": "^1.4.0",
     "@vercel/og": "^0.6.2",

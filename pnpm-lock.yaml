@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@logkit/client-react':
-        specifier: 0.0.0-89854cf
-        version: 0.0.0-89854cf(react@19.1.0)
+        specifier: 0.0.0-0f0272d
+        version: 0.0.0-0f0272d(react@19.1.0)
       '@shikijs/rehype':
         specifier: ^3.6.0
         version: 3.6.0
@@ -304,8 +304,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@logkit/client-react@0.0.0-89854cf':
-    resolution: {integrity: sha512-3CT2bL8jgtiOvktMZ2iiWEoI5Nt+3BZECxduJqbOvcrW8hKAZMo21mxGWDGR3I78yyZA+PbnbMmFeFruB+2WRA==}
+  '@logkit/client-react@0.0.0-0f0272d':
+    resolution: {integrity: sha512-6EOH58pqJ1Z0AQ05hRFApM26q0GMrvw3oSzp8TxDW8DHdxJlIImoCJBkvK8Bz0dyAAtCGRnMiRxXczHBj/bIyg==}
     peerDependencies:
       react: '>17'
 
@@ -2573,7 +2573,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@logkit/client-react@0.0.0-89854cf(react@19.1.0)':
+  '@logkit/client-react@0.0.0-0f0272d(react@19.1.0)':
     dependencies:
       react: 19.1.0
 
