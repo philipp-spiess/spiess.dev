@@ -1,17 +1,19 @@
-import Link from "next/link"
-import Avatar from "./Avatar"
+import Link from "next/link";
+import Avatar from "./Avatar";
 
 export const description =
   "Philipp Spiess is an engineer at Tailwind Labs with a focus on Web technologies. Previous roles include: Engineering at Sourcegraph, UI Engineer at Meta, curator of " +
-  "This Week in React, React DOM team member, and Team Lead at PSPDFKit."
+  "This Week in React, React DOM team member, and Team Lead at PSPDFKit.";
 
 interface Props {
-  direction?: "row" | "column"
+  direction?: "row" | "column";
 }
 export default function Bio({ direction }: Props) {
   return (
     <div
-      className={`text-left flex ${direction === "row" ? "flex-row" : "flex-col"}`}
+      className={`text-left flex ${
+        direction === "row" ? "flex-row" : "flex-col"
+      }`}
     >
       <div className="min-w-[116px] flex pt-2">
         <Link href="/" className="shadow-none">
@@ -21,10 +23,16 @@ export default function Bio({ direction }: Props) {
       <div>
         <div className="text-lg font-black">
           Philipp Spiess{" "}
-          <small className="text-(--muted-color)" style={{ 
-            fontFamily: "var(--marriweather), 'Doulos SIL', 'Charis SIL', 'Times New Roman', 'DejaVu Serif', serif",
-            fontFeatureSettings: '"kern", "liga", "clig", "calt"'
-          }}>[ˈʃpiːs]</small>
+          <small
+            className="text-(--muted-color)"
+            style={{
+              fontFamily:
+                "var(--marriweather), 'Doulos SIL', 'Charis SIL', 'Times New Roman', 'DejaVu Serif', serif",
+              fontFeatureSettings: '"kern", "liga", "clig", "calt"',
+            }}
+          >
+            [ˈʃpiːs]
+          </small>
         </div>
 
         <p className="my-5">
@@ -55,7 +63,7 @@ export default function Bio({ direction }: Props) {
           </Link>
           , curator of{" "}
           <Link
-            href="https://this-week-in-react.org"
+            href="https://github.com/philipp-spiess/this-week-in-react"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -110,5 +118,5 @@ export default function Bio({ direction }: Props) {
         </ul>
       </div>
     </div>
-  )
+  );
 }
