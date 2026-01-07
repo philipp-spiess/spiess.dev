@@ -70,7 +70,7 @@ export default function Bio({ direction }: Props) {
           >
             React DOM
           </Link>{" "}
-          team
+          team.
         </p>
         <ul className="m-0 flex list-none max-w-[300px]">
           <li className="m-[0.29rem] mt-0 first:ml-0 last:mr-0">
