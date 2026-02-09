@@ -308,7 +308,7 @@ export default function FeedList({ items }: { items: FeedItem[] }) {
                   </span>
 
                   {item.label && (
-                    <span className="whitespace-nowrap text-sm text-(--muted-color) transition-colors group-hover:text-[rgba(var(--fg-color),0.78)]">
+                    <span className="hidden whitespace-nowrap text-sm text-(--muted-color) transition-colors group-hover:text-[rgba(var(--fg-color),0.78)] sm:inline">
                       {item.label}
                     </span>
                   )}
