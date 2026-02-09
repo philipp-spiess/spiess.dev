@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 
 export const description =
   "Philipp Spiess – Somewhere between AI and UI. " +
-  "Prev: Tailwind Labs, Sourcegraph, Meta, React DOM team.";
+  "Prev: Tailwind Labs, Meta, Sourcegraph, React DOM team.";
 
 interface Props {
   direction?: "row" | "column";
@@ -48,19 +48,19 @@ export default function Bio({ direction }: Props) {
           </Link>
           ,{" "}
           <Link
-            href="https://sourcegraph.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Sourcegraph
-          </Link>
-          ,{" "}
-          <Link
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             Meta
+          </Link>
+          ,{" "}
+          <Link
+            href="https://sourcegraph.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sourcegraph
           </Link>
           ,{" "}
           <Link
