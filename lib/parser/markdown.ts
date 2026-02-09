@@ -66,7 +66,7 @@ export async function parseMarkdown(markdown: string): Promise<{
       }
     })
     .use(rehypeShiki, {
-      theme: "catppuccin-frappe",
+      theme: "vitesse-dark",
       langs: [
         "javascript",
         "typescript", 
@@ -104,15 +104,15 @@ export async function parseMarkdown(markdown: string): Promise<{
   // Convert plaintext code blocks by looking for the original markdown
   if (content.includes('```plaintext')) {
     contentHtml = contentHtml.replace(
-      /<pre class="shiki catppuccin-frappe"[^>]*>([\s\S]*?)<\/pre>/g,
+      /<pre class="shiki vitesse-dark"[^>]*>([\s\S]*?)<\/pre>/g,
       (match, innerContent) => {
         // Check if this block only has "line" spans (no syntax highlighting)
         const hasOnlyLineSpans = innerContent.includes('<span class="line">') && 
                                 !innerContent.match(/<span[^>]*style[^>]*color:/);
         if (hasOnlyLineSpans) {
           return match.replace(
-            /<pre class="shiki catppuccin-frappe"[^>]*>/,
-            '<pre class="shiki catppuccin-frappe claude-plaintext" style="background-color:#303446;color:#c6d0f5 !important" tabindex="0">'
+            /<pre class="shiki vitesse-dark"[^>]*>/,
+            '<pre class="shiki vitesse-dark claude-plaintext" style="background-color:#121212;color:#dbd7ca !important" tabindex="0">'
           )
         }
         return match
