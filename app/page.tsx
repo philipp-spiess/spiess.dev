@@ -87,7 +87,7 @@ export default async function Home() {
         <Bio />
         <hr className="mt-8 hidden w-full md:block" />
         <section className="hidden w-full px-2 md:block md:px-0">
-          <h3 className="mb-2 text-lg font-black">Subscribe to my newsletter</h3>
+          <h3 className="mb-2 text-lg font-black">Join my newsletter</h3>
           <p className="mb-4 text-(--muted-color)">
             Get surprise updates on what&apos;s on my mind. No spam, pinky
             promise.
@@ -102,7 +102,7 @@ export default async function Home() {
         <section className="mt-12 md:hidden">
           <hr className="mb-8 w-full" />
           <div className="w-full">
-            <h3 className="mb-2 text-lg font-black">Subscribe to my newsletter</h3>
+            <h3 className="mb-2 text-lg font-black">Join my newsletter</h3>
             <p className="mb-4 text-(--muted-color)">
               Get surprise updates on what&apos;s on my mind. No spam, pinky
               promise.
