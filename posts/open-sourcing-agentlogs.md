@@ -1,10 +1,10 @@
 ---
 title: "Open-sourcing AgentLogs"
 date: "2026-02-14"
-draft: false
+draft: true
 ---
 
-TL;DR: Over the past few weeks I worked on [AgentLogs](https://github.com/agentlogs/agentlogs), an early prototype of a platform for collaboration in the age of AI coding agents. This week, I'm publishing all existing work and move the work into the open. I invite you to join and figure out the future of collaboration together.
+TL;DR: Over the past few weeks I worked on [AgentLogs](https://github.com/agentlogs/agentlogs), an early prototype of a platform for collaboration in the age of AI coding agents. This week, I'm publishing all existing work and move the work into the open. [something here about what's next?]
 
 ## GitHub is Dying
 
@@ -36,7 +36,9 @@ So, my bet is that teams will end up using multiple coding agent harnesses in th
 
 ## Building AgentLogs
 
-Over the last few weeks, I build a second attempt.
+Over the last few weeks, I build a second attempt. [explain why what how and post a pic]
+
+![](/blog/open-sourcing-agentlogs/screenshot.png)
 
 ## Why I Am Open Sourcing It
 
