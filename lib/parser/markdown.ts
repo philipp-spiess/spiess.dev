@@ -1,4 +1,5 @@
 import { remark } from "remark"
+import remarkFootnotes from "remark-footnotes"
 import rehypeShiki from "@shikijs/rehype"
 import rehypeStringify from "rehype-stringify"
 import remarkRehype from "remark-rehype"
@@ -52,6 +53,7 @@ export async function parseMarkdown(markdown: string): Promise<{
   content = lines.join('\n')
 
   const processedContent = await remark()
+    .use(remarkFootnotes as any, { inlineNotes: true })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
