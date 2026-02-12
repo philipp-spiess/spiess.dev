@@ -15,6 +15,7 @@ interface ExternalPost {
   contentHtml: string
   external: string
   date: string
+  draft?: boolean
 }
 export interface BlogPost {
   type: "blog"
@@ -25,6 +26,7 @@ export interface BlogPost {
   readingTime: string
   contentHtml: string
   date: string
+  draft?: boolean
 }
 
 export type Post = ExternalPost | BlogPost

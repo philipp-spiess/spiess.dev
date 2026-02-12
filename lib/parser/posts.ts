@@ -4,7 +4,11 @@ import { getPost, type Post } from "./post"
 
 export const postsDirectory = path.join(process.cwd(), "posts")
 
-export async function getPosts(): Promise<Post[]> {
+export async function getPosts({
+  includeDrafts = false,
+}: {
+  includeDrafts?: boolean
+} = {}): Promise<Post[]> {
   // Get file names under /posts
   const dirs = await fs.readdir(postsDirectory)
 
@@ -24,8 +28,12 @@ export async function getPosts(): Promise<Post[]> {
     allPostsData.push(await getPost(id))
   }
 
+  const visiblePosts = includeDrafts
+    ? allPostsData
+    : allPostsData.filter((post) => !post.draft)
+
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
+  return visiblePosts.sort(({ date: a }, { date: b }) => {
     if (a < b) {
       return 1
     }
