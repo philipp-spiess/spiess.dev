@@ -83,7 +83,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen max-w-[1000px] mx-auto md:grid md:grid-cols-[300px_minmax(0,1fr)]">
-      <aside className="flex flex-col items-center pt-8 px-2 md:px-7 md:pt-14 md:w-[300px]">
+      <aside className="flex flex-col items-start pt-8 px-2 md:items-center md:px-7 md:pt-14 md:w-[300px]">
         <Bio />
         <hr className="mt-8 hidden w-full md:block" />
         <section className="hidden w-full px-2 md:block md:px-0">
