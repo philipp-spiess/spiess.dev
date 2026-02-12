@@ -66,6 +66,21 @@ export default async function BlogPost({
           {post.formattedDate} • {post.readingTime}
         </p>
 
+        {post.draft ? (
+          <div
+            className="my-6 rounded-md border border-dashed px-4 py-3 text-sm"
+            style={{
+              borderColor:
+                "color-mix(in srgb, var(--accent-color) 40%, transparent)",
+              backgroundColor:
+                "color-mix(in srgb, var(--accent-color) 12%, transparent)",
+            }}
+          >
+            <strong className="font-black">Draft:</strong> This post is a
+            work in progress and may change before publication.
+          </div>
+        ) : null}
+
         <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
         <section>
