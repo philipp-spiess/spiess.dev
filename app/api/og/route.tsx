@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
               marginLeft: 35,
               fontWeight: 700,
               fontFamily: 'Merriweather"',
-              color: "#8e6e15",
+              color: "rgba(0,0,0,.9)",
             }}
           >
             Philipp Spiess
@@ -69,13 +69,15 @@ export async function GET(req: NextRequest) {
         </div>
         <div
           style={{
-            fontSize: 60,
+            fontSize: 54,
             fontWeight: 700,
             fontFamily: 'Merriweather"',
-            color: "rgba(0,0,0,.9)",
             marginTop: 60,
             lineHeight: 1.4,
             whiteSpace: "pre-wrap",
+            backgroundImage: "linear-gradient(to bottom right, #8e6e15, #ffb869)",
+            backgroundClip: "text",
+            color: "transparent",
           }}
         >
           {title}
