@@ -1,7 +1,6 @@
 ---
 title: "Software Collaboration in the AI Age"
 date: "2026-02-13"
-draft: true
 ---
 
 Let's start with two observations:
