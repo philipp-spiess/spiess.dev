@@ -63,7 +63,7 @@ The final nail in the coffin was that I was starting to think of this as a _coll
 
 ## What's Next
 
-So, that's where we are right now. If you're curious, go check it out on [GitHub](https://github.com/agentlogs/agentlogs) or sign up for the [cloud waitlist](http://agentlogs.ai/). I'd love to hear your thoughts about the future of the software development loop.
+So, that's where we are right now. If you're curious, go check out and star it on [GitHub](https://github.com/agentlogs/agentlogs) (oh the irony) or sign up for the [cloud waitlist](http://agentlogs.ai/). I'd love to hear your thoughts about the future of the software development loop.
 
 [^1]: E.g. [Cursor acquiring Graphite](https://cursor.com/blog/graphite)
 
