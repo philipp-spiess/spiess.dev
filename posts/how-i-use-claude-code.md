@@ -164,7 +164,7 @@ And, voila, you now have another working directory for Claude Code to go absolut
 With AI, code is becoming _really cheap_. This means that you can now build stuff that you only ever use once without feeling bad about it. Everything that you wish would make your current task easier can just be created out of thin air. Here are some examples of things I built recently that would never have been worth my time before coding agents:
 
 - A dashboard that visualizes my current progress during a large migration at work
-- A chrome extension that shows me which version of Tailwind CSS a website is using (or, god-forbid, wether it isn't using Tailwind CSS at all)
+- A chrome extension that shows me which version of Tailwind CSS a website is using (or, god-forbid, whether it isn't using Tailwind CSS at all)
 - A [CLI and backend](https://github.com/philipp-spiess/claude-code-viewer) to upload Claude Code transcripts to be shared publicly
 - A [CLI to sum up my Claude Code API costs](https://github.com/philipp-spiess/claude-code-costs) to see how much value I get out of the Max plan (oh so much...)
 - An [Electron app that experiments with Claude Code inside a git GUI](https://github.com/philipp-spiess/claude-code-app)
