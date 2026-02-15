@@ -72,7 +72,7 @@ But the turning point was once I started calling it a _collaboration platform_. 
 
 ## What's Next
 
-If you're curious, the code is on [GitHub](https://github.com/agentlogs/agentlogs) (oh, the irony). Now is the time to really rethink best practices.
+If you're curious, the code is on [GitHub](https://github.com/agentlogs/agentlogs) (oh, the irony). It's not much but it's a start, and you're invited to shape it in any way it makes sense for you. Now is the time to really rethink best practices.
 
 [^1]: E.g. [Cursor acquiring Graphite](https://cursor.com/blog/graphite)
 
