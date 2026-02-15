@@ -68,11 +68,11 @@ One aspect is that agent transcripts are a huge security liability since it's _v
 
 Another realization is that to make this tool useful for your team, you really want to integrate all coding agents your team is using. Even if they have DIY ones. In its current version, it's very trivial to add a new integration (since LLMs are notoriously good at converting one format to another) so making everything open makes it easy to add the integrations you need.
 
-But the turning point was once I started calling it a _collaboration platform_. The vision for this is to completely rethink how humans are working together in the age of AI, and no single person or team can do that in a silo. So, today, I'm inviting you to [join the discussion](https://github.com/agentlogs/agentlogs/discussions) and collaborate. I would love to learn your team's unique struggles and what guardrails can be helpful.
+But the turning point was once I started calling it a _collaboration platform_. If the vision is to rethink how teams work together in the AI age, this can't happen in a silo. Open-sourcing it felt like the only honest approach.
 
 ## What's Next
 
-If you're curious, go check out and star it on [GitHub](https://github.com/agentlogs/agentlogs) (oh, the irony) or sign up for the [cloud waitlist](http://agentlogs.ai/). It's time to really rethink best practices.
+If you're curious, the code is on [GitHub](https://github.com/agentlogs/agentlogs) (oh, the irony). Now is the time to really rethink best practices.
 
 [^1]: E.g. [Cursor acquiring Graphite](https://cursor.com/blog/graphite)
 
