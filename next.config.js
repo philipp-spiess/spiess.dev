@@ -19,6 +19,11 @@ const nextConfig = {
         destination: "/note/engineering/ai/jaccard-similarity",
         permanent: true,
       },
+      {
+        source: "/blog/open-sourcing-agentlogs",
+        destination: "/blog/software-collaboration-in-the-ai-age",
+        permanent: true,
+      },
     ];
   },
 

@@ -4,6 +4,7 @@ import ArticleHeader from "../../../lib/ArticleHeader"
 import Bio from "../../../lib/Bio"
 import NewsletterForm from "../../../lib/NewsletterForm"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
   const posts = await getPosts()
@@ -20,7 +21,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = await getPost(slug).catch(() => null)
+  if (!post) return {}
   return {
     title: post.title,
     description: post.excerpt,
@@ -46,7 +48,8 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = await getPost(slug).catch(() => null)
+  if (!post) notFound()
 
   return (
     <>
