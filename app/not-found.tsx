@@ -10,7 +10,7 @@ export default function NotFound() {
           404 — Page Not Found
         </h1>
         <p className="text-(--muted-color) mt-4">
-          This page doesn't exist, or it may have moved.
+          This page does not exist, or it may have moved.
         </p>
         <p className="mt-6">
           <Link href="/" className="text-(--accent-color)">
