@@ -2,8 +2,8 @@ import Link from "next/link";
 import Avatar from "./Avatar";
 
 export const description =
-  "Philipp Spiess – Somewhere between AI and UI. " +
-  "Prev: Tailwind Labs, Meta, Sourcegraph, React DOM team.";
+  "Philipp Spiess – Codex at OpenAI. " +
+  "Somewhere between AI and UI. Prev: Tailwind Labs, Meta, Sourcegraph, React DOM.";
 
 interface Props {
   direction?: "row" | "column";
@@ -35,42 +35,54 @@ export default function Bio({ direction }: Props) {
           </small>
         </div>
 
-        <p className="my-5">
+        <p className="my-5 leading-[1.6]">
           Somewhere between AI and UI.
           <br />
-          Prev:{" "}
+          Codex at{" "}
           <Link
-            href="https://tailwindcss.com"
+            href="https://openai.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tailwind Labs
+            OpenAI
           </Link>
-          ,{" "}
-          <Link
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Meta
-          </Link>
-          ,{" "}
-          <Link
-            href="https://sourcegraph.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Sourcegraph
-          </Link>
-          ,{" "}
-          <Link
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React DOM
-          </Link>{" "}
-          team.
+          {"."}
+          <br />
+          <span className="text-[0.95em]">
+            Prev:{" "}
+            <Link
+              href="https://tailwindcss.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tailwind Labs
+            </Link>
+            {", "}
+            <Link
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Meta
+            </Link>
+            {", "}
+            <Link
+              href="https://sourcegraph.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sourcegraph
+            </Link>
+            {", "}
+            <Link
+              href="https://reactjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              React DOM
+            </Link>
+            {"."}
+          </span>
         </p>
         <div className="mt-2 flex items-center gap-3 text-(--muted-color)">
           <Link
